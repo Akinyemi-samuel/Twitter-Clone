@@ -1,0 +1,61 @@
+<div class="dialog_box">
+    <div class="header_details">
+        <img class="exitbtn" (click)="onNoClick()"
+            src="https://img.icons8.com/material-outlined/24/FFFFFF/delete-sign.png" />
+        <img class="justify-items-center" src="../../../assets/icons/twitter.png" />
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="LogInUser()">
+
+        <!-- CHECKS IF THE EMAIL THE USER
+     TRIED TO LOG-IN WITH EXISTS FIRST -->
+        <div class="email_section">
+
+            <div class="head_title">
+                <h2>Sign in to Twitter</h2>
+            </div>
+            <div class="buttons">
+                <a class="flex justify-between">
+                    <p class="pl-[10px]">Sign in as</p>
+                    <img src="https://img.icons8.com/fluency/24/null/google-logo.png" />
+                </a>
+                <a class="justify-center"><img src="https://img.icons8.com/material-rounded/24/null/mac-os.png" />
+                    Sign up with Apple</a>
+            </div>
+            <div class="or_text">
+                <hr>
+                <p>or</p>
+                <hr>
+            </div>
+            <div class="email_forms">
+                <input matInput formControlName="email" placeholder="Phone, email address or username">
+            </div>
+            <div class="buttons_next">
+                <a class="justify-center" (click)="verifyUser()">Next</a>
+                <a class="justify-center bg-black">Forgot password</a>
+            </div>
+            <div class="signup_text">
+                <p>Don’t have an account?<a> Sign up</a></p>
+            </div>
+        </div>
+
+        <!-- IF THE EMAIL EXISTS THEN THIS SECTION
+             VERIFIES THE PASSWORD FOR THE EMAIL
+            PROVIDED -->
+        <div class="password_section">
+            <div class="head_title">
+                <h2>Enter your password</h2>
+            </div>
+            <div class="forms">
+                <input type="text" value={{email.value}} readonly>
+                <input type="password" placeholder="Password">
+                <div class="btn_section">
+                    <button type="submit">Log in</button>
+                    <p>Don’t have an account? <a class="text-[var(--twitter-blue)] cursor-pointer">Sign up</a></p>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>

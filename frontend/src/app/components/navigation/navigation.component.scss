@@ -1,0 +1,49 @@
+.homess {
+    background-color: var(--bg-color);
+
+    .home_content {
+        max-width: 1250px;
+        margin: 0 auto;
+        color: var(--text-color);
+        display: flex;
+        height: 100vh;
+    }
+
+    .left {
+        flex: 14%;
+        padding: 0 15px;
+        padding-top: 15px;
+
+        .nav_icons{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            
+            svg{
+                width: 30px;
+                margin: 13px 0;
+                margin-right: 10px;
+            }
+
+            a:hover{
+               width: 30px; 
+                background-color: rgba(255, 255, 255, 0.212);
+                border-radius: 50%;
+            }
+        }
+    }
+    .center {
+        width: 100%;
+        margin: 0 auto;
+        flex: 57%;
+        background-color: black;
+        border-left: 1px solid var(--border-stroke);
+        border-right: 1px solid var(--border-stroke);
+        padding-top: 15px;
+    }
+    .right {
+        flex: 45%;
+        padding-top: 15px;
+    }
+}
+

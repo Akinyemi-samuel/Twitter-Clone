@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --twitter-blue:#1DA1F2;
+    --bg-color: black;
+    --text-color: white;
+    --border-stroke:rgba(255, 255, 255, 0.308);
+  }
+  
+  [data-theme="dark"] {
+    --bg-color: white;
+    --text-color: black;
+    --border-stroke:rgba(0, 0, 0, 0.301);
+  }
+  
+  html, body { height: 100%; }
+  body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
