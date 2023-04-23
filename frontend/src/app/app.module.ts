@@ -12,6 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogginDialogComponent } from './components/loggin-dialog/loggin-dialog.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { ExploreComponent } from './components/explore/explore.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { ExploreComponent } from './components/explore/explore.component';
     HomeComponent,
     LoggedOutComponent,
     LogginDialogComponent,
-    ExploreComponent
+    ExploreComponent,
+    MessagesComponent,
+    NotificationsComponent,
+    BookmarksComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
