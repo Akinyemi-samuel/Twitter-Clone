@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div class="home_section">
+
+    <div class="fixed_nav">
+
+        <h2 class="title">
+            Home
+        </h2>
+
+        <div class="options">
+            <span (click)="toggleoptions('for you')"> <a [ngClass]="options == 'for you' ? 'active' : 'non-active'">For you</a> </span>
+
+            <span (click)="toggleoptions('following')"><a [ngClass]="options == 'following' ? 'active' : 'non-active'">Following</a></span>
+        </div>
+    </div>
+</div>

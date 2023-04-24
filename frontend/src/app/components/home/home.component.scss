@@ -1,0 +1,51 @@
+.home_section {
+    
+
+    .fixed_nav {
+        font-family: "Source Sans Pro", sans-serif;
+        border-bottom: 1px solid var(--border-stroke);
+        .title {
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 1.3rem;
+            font-weight: bolder;
+            padding-left: 20px;
+            padding-bottom: 8px;
+        }
+
+        .options{
+            display: flex;
+            font-size: 15px;
+            
+
+            span{
+                text-align: center;
+                height: 100%;
+                flex: 50%;
+                padding-bottom: 12px;
+                padding-top: 18px;
+
+                a{
+                    
+                    font-weight: bold;
+                    padding-bottom: 12px;
+                    border-radius: 1px;
+                }
+            }
+            span:hover{
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.164);
+            }
+
+        }
+    }
+}
+
+.active{
+    border-bottom: 4px solid var(--twitter-blue);
+}
+
+.non-active{
+    border: none;
+}
+
+
