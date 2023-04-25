@@ -1,6 +1,4 @@
 .home_section {
-    
-
     .fixed_nav {
         font-family: "Source Sans Pro", sans-serif;
         border-bottom: 1px solid var(--border-stroke);
@@ -12,40 +10,113 @@
             padding-bottom: 8px;
         }
 
-        .options{
+        .options {
             display: flex;
             font-size: 15px;
-            
 
-            span{
+            span {
                 text-align: center;
                 height: 100%;
                 flex: 50%;
                 padding-bottom: 12px;
                 padding-top: 18px;
 
-                a{
-                    
+                a {
                     font-weight: bold;
                     padding-bottom: 12px;
                     border-radius: 1px;
                 }
             }
-            span:hover{
+            span:hover {
                 width: 100%;
                 background-color: rgba(255, 255, 255, 0.164);
             }
+        }
+    }
 
+    .create_tweet {
+        padding-left: 20px;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-stroke);
+
+        .row1 {
+            flex: 15%;
+            // align-self: center;
+            padding-top:10px;
+
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                // background-color: brown;
+            }
+        }
+
+        .row2 {
+            flex: 85%;
+            width: 90%;
+            margin: 0 auto;
+            align-self: center;
+
+            input {
+                width: 90%;
+                padding: 28px 0;
+                background-color: transparent;
+                color: white;
+            }
+
+            input::placeholder {
+                font-size: 20px;
+                font-weight: lighter;
+            }
+
+            input:focus {
+                outline: none;
+                border-bottom: 1px solid var(--border-stroke);
+                background-color: transparent;
+            }
+
+            .icons_tweetbtn {
+                padding-top: 10px;
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+
+                .left {
+                    display: flex;
+                    svg {
+                        width: 28px;
+                        border-radius: 50%;
+                        padding: 5px;
+                        margin: 0 3px;
+                    }
+
+                    svg:hover {
+                        background-color: #1da0f228;
+                    }
+                }
+
+                .right {
+                    button {
+                        padding: 5px 18px;
+                        background-color: var(--twitter-blue);
+                        border-radius: 20px;
+                        font-weight: bold;
+                    }
+                }
+            }
         }
     }
 }
 
-.active{
+// set the home links active either by (for you) OR (following)
+.active {
     border-bottom: 4px solid var(--twitter-blue);
 }
 
-.non-active{
+.non-active {
     border: none;
 }
-
-
