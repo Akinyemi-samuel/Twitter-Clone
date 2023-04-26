@@ -1,0 +1,48 @@
+.tweet_container {
+    padding-left: 20px;
+    padding-top: 15px;
+
+    .tweet_layout {
+        display: flex;
+
+        .profilepic {
+            flex: 13%;
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+        }
+
+        .user_info_details{
+            padding-top: 3px;
+            flex: 87%;
+
+            .user_details{
+
+                .user_name{
+                    font-weight: bold;
+                }
+
+                .stopdot{
+                    color: var(--border-stroke);
+                    padding-right: 8px;
+                }
+
+                .user_userName{
+                    padding: 0 8px ;
+                    color: var(--border-stroke);
+                }
+
+                .time_posted{
+                    color: var(--border-stroke);
+                }
+            }
+
+            .user_messages{
+                font-size: 15px;
+                font-weight: 1100;
+            }
+        }
+    }
+}

@@ -15,7 +15,7 @@ export class SplashScreenComponent implements OnInit{
 
   redirecttoHome(){
     setTimeout(()=>{
-      this.router.navigateByUrl('/navigation')
+      this.router.navigateByUrl('/i')
     },3000)
   }
 

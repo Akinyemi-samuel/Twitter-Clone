@@ -10,7 +10,7 @@ import { LoggedOutComponent } from './components/logged-out/logged-out.component
 const routes: Routes = [
   { path: '', redirectTo: '/splashscreen', pathMatch: 'full' },
   { path: 'splashscreen', component: SplashScreenComponent },
-  { path: 'navigation', component: NavigationComponent, canActivate: [Authguard], loadChildren: () => ChildRoutingModule },
+  { path: 'i', component: NavigationComponent, canActivate: [Authguard], loadChildren: () => ChildRoutingModule },
   { path: 'loggedout', component: LoggedOutComponent }
 
 ];
