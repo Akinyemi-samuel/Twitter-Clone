@@ -6,7 +6,6 @@
         margin: 0 auto;
         color: var(--text-color);
         display: flex;
-        height: 100vh;
     }
 
     .left {
@@ -18,22 +17,25 @@
             flex-direction: column;
             align-items: flex-end;
 
-            svg {
-                width: 44px;
-                margin: 8px 0;
-                margin-right: 10px;
-                font-weight: bolder;
-                object-fit: cover; /* Scale the image to cover its container */
-                padding: 8px;
-                margin-right: -2px;
-                border-radius: 50%; /* Set the border radius to make the image circular */
-                transition: all 0.3s ease;
-                
-            }
-
-            svg:hover {
-                background-color: #cccccc49;
-                border-radius: 50%;
+            .nav_fixed{
+                position: fixed;
+                svg {
+                    width: 44px;
+                    margin: 8px 0;
+                    margin-right: 10px;
+                    font-weight: bolder;
+                    object-fit: cover; /* Scale the image to cover its container */
+                    padding: 8px;
+                    margin-right: -2px;
+                    border-radius: 50%; /* Set the border radius to make the image circular */
+                    transition: all 0.3s ease;
+                    
+                }
+    
+                svg:hover {
+                    background-color: #cccccc49;
+                    border-radius: 50%;
+                }
             }
         }
     }
@@ -44,10 +46,14 @@
         background-color: black;
         border-left: 1px solid var(--border-stroke);
         border-right: 1px solid var(--border-stroke);
-        padding-top: 15px;
     }
     .right {
         flex: 45%;
         padding-top: 15px;
+
+        // .right_side{
+        //     position: fixed;
+            
+        // }
     }
 }

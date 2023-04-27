@@ -2,6 +2,12 @@
     .fixed_nav {
         font-family: "Source Sans Pro", sans-serif;
         border-bottom: 1px solid var(--border-stroke);
+        z-index: 100;
+        background: rgb(5, 5, 5);
+        opacity: 1;
+        padding-top: 15px;
+        
+
         .title {
             font-family: "Source Sans Pro", sans-serif;
             font-size: 1.3rem;
@@ -45,7 +51,7 @@
         .row1 {
             flex: 12%;
             // align-self: center;
-            padding-top:10px;
+            padding-top: 10px;
 
             img {
                 width: 50px;
@@ -119,4 +125,11 @@
 
 .non-active {
     border: none;
+}
+
+.fixed-top {
+    position: fixed;
+    width: 100%;
+    transition: all 3s ease;
+    /* add any other desired styles here */
 }
