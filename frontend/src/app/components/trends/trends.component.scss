@@ -1,0 +1,90 @@
+.trend {
+    padding-top: 5px;
+    padding-left: 20px;
+    width: 80%;
+
+    .trends_search {
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 25px;
+            background-color: rgba(255, 255, 255, 0.137);
+            border-radius: 50px;
+            color: var(--text-color);
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid var(--twitter-blue);
+            background-color: var(--bg-color);
+        }
+    }
+
+    .trends_section {
+        width: 100%;
+        margin-top: 10px;
+        background-color: rgba(255, 255, 255, 0.137);
+        border-radius: 15px;
+        font-family: "Source Sans Pro", sans-serif;
+        
+
+        .title {
+            padding: 0 20px;
+            padding-top: 10px;
+            font-size: 1.25em;
+            font-weight: bold;
+            padding-bottom: 18px;
+            font-family: "Source Sans Pro", sans-serif;
+        }
+
+        .trends_content{
+            padding-bottom: 7px;
+            .trends {
+                padding: 7px 20px;
+                font-family: "Roboto", sans-serif;
+
+                span{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: -5px;
+
+                    i{
+                        border-radius: 50%;
+                        color: rgba(255, 255, 255, 0.308);
+                        padding: 5px;
+                    }
+
+                    i:hover{
+                        background-color: #1da0f23f;
+                    }
+                }
+        
+                p {
+                  font-size: 13px;
+                  color: var(--border-stroke);
+                  font-weight: lighter;
+                }
+        
+                h3 {
+                  font-weight: bold;
+                  letter-spacing: 1.5px;
+                  font-size: 15px;
+                }
+              }
+    
+              .trends:hover {
+                background-color: rgba(255, 255, 255, 0.041);
+                width: 100%;
+              }
+        }
+
+        
+    }
+
+
+        
+
+
+
+}

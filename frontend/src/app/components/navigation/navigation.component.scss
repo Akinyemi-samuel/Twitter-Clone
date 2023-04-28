@@ -17,7 +17,7 @@
             flex-direction: column;
             align-items: flex-end;
 
-            .nav_fixed{
+            .nav_fixed {
                 position: fixed;
                 svg {
                     width: 44px;
@@ -29,9 +29,8 @@
                     margin-right: -2px;
                     border-radius: 50%; /* Set the border radius to make the image circular */
                     transition: all 0.3s ease;
-                    
                 }
-    
+
                 svg:hover {
                     background-color: #cccccc49;
                     border-radius: 50%;
@@ -49,11 +48,18 @@
     }
     .right {
         flex: 45%;
-        padding-top: 15px;
+        padding-top: px;
+
+        // .right_side {
+        // //     position: sticky;
+        // //     top: 0;
+        // //     z-index: 1;
+        // // }
+        // }
 
         // .right_side{
         //     position: fixed;
-            
+
         // }
     }
 }

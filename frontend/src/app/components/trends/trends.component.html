@@ -1,1 +1,21 @@
-<p>trends works!</p>
+<div class="trend">
+    <div class="trends_search">
+        <input type="text" placeholder="Search Twitter">
+    </div>
+    <div class="trends_section">
+        <div class="title">
+            Trends for you
+        </div>
+        <div *ngFor="let product of products" class="trends_content">
+            <div class="trends">
+                <span><p>{{product.location}}</p> <i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
+                <h3>{{product.topic}}</h3>
+                <p>{{product.amount}}k Tweets</p>
+            </div>
+        </div>
+        
+       
+                
+        
+    </div>
+</div>
