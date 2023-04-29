@@ -1,4 +1,4 @@
-.homess {
+.homes {
     background-color: var(--bg-color);
 
     .home_content {
@@ -35,5 +35,48 @@
         //     position: fixed;
 
         // }
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+    .homes {
+        background-color: var(--bg-color);
+    
+        .home_content {
+            max-width: 1250px;
+            margin: 0 auto;
+            color: var(--text-color);
+            display: flex;
+        }
+    
+        .left {
+            flex: 19%;
+            padding: 0 15px;
+        }
+        .center {
+            width: 100%;
+            margin: 0 auto;
+            flex: 57%;
+            background-color: black;
+            border-left: 1px solid var(--border-stroke);
+            border-right: 1px solid var(--border-stroke);
+        }
+        .right {
+            flex: 40%;
+            padding-top: px;
+    
+            // .right_side {
+            // //     position: sticky;
+            // //     top: 0;
+            // //     z-index: 1;
+            // // }
+            // }
+    
+            // .right_side{
+            //     position: fixed;
+    
+            // }
+        }
     }
 }

@@ -82,9 +82,12 @@
         
     }
 
+}
 
-        
-
-
-
+@media screen and (min-width: 1280px) {
+    .trend {
+        padding-top: 5px;
+        padding-left: 20px;
+        width: 95%;
+    }
 }
