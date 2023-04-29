@@ -18,6 +18,7 @@ import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TweetListComponent } from './components/tweets/tweet-list/tweet-list.component';
 import { TrendsComponent } from './components/trends/trends.component';
+import { NavigationLinksComponent } from './components/navigation-links/navigation-links.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TrendsComponent } from './components/trends/trends.component';
     BookmarksComponent,
     ProfileComponent,
     TweetListComponent,
-    TrendsComponent
+    TrendsComponent,
+    NavigationLinksComponent
   ],
   imports: [
     BrowserModule,
