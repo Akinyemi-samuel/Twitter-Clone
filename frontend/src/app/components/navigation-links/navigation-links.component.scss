@@ -2,16 +2,31 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    box-sizing: border-box;
 
     .nav_fixed {
         position: fixed;
+
+        .tweetbtn{
+            margin-top: 20px;
+            padding: 15px 80px;
+            border-radius: 30px;
+            background-color: var(--twitter-blue);
+        }
+
+        .tweeticon{
+            width: 52px;
+            height: 52px;
+            background-color: var(--twitter-blue);
+            border-radius: 50%;
+        }
 
 
         a span{
             display: flex;
             align-items: center;
             border-radius: 50%; /* Set the border radius to make the image circular */
-            transition: all 0.3s ease;
+            // transition: all 0.3s ease;
 
             p{
                 padding: 0 10px;
@@ -30,8 +45,9 @@
         }
 
         a span:hover {
-            background-color: #cccccc49;
-            border-radius: 100px;
+            padding: 0;
+            background-color: #cccccc18;
+            border-radius: 20px;
         }
         
     }
