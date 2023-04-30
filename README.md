@@ -9,4 +9,4 @@ see below for pictures with every new update
 
 <img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/twitterhome.png"/>
 
-<img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/twitter_full_nav.png"/>
+<img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/tweetbtn.png"/>
