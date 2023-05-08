@@ -4,3 +4,4 @@ services:
   db:
     image: mysql
     container_name: mysql
+    restart: on-failure
