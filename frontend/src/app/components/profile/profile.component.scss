@@ -1,0 +1,112 @@
+.profile_page {
+    .profile_header {
+        padding-left: 15px;
+        display: flex;
+        align-items: center;
+        padding-top: 5px;
+
+        .backbtn {
+            border-radius: 30px;
+            padding: 8px;
+        }
+
+        .backbtn:hover {
+            background-color: var(--hover_color);
+        }
+
+        .twittername_and_tweetamount {
+            padding-left: 20px;
+
+            h3 {
+                color: white;
+                font-size: 18px;
+            }
+            p {
+                color: var(--border-stroke);
+                font-size: 14px;
+            }
+        }
+    }
+
+    .profile_background {
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        background-image: url(../../../assets/images/john.jpeg);
+        border: none;
+    }
+
+    .profile_details {
+        padding: 0px 15px;
+
+        .section1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .left_side {
+                img {
+                    padding: 5px;
+                    background: black;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    z-index: 10;
+                    margin-top: -70px;
+                }
+            }
+
+            .right_side {
+                a {
+                    justify-self: flex-start;
+                    border: 1px solid var(--border-stroke);
+                    border-radius: 20px;
+                    padding: 6px 20px;
+                    font-weight: normal;
+                }
+
+                a:hover {
+                    background-color: var(--hover_color);
+                }
+            }
+        }
+        .section2 {
+            padding-top: 15px;
+
+            .user_details {
+                h3 {
+                    font-size: 22px;
+                    font-weight: 900;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: var(--border-stroke);
+                }
+            }
+
+            .description {
+                padding-top: 17px;
+
+                .links {
+                    padding: 8px 0;
+                    font-size: 14px;
+                }
+            }
+
+            .user_numbers {
+                display: flex;
+                padding-top: 5px;
+
+                p{
+                    padding-right: 25px;
+                }
+                 span{
+                    color: var(--border-stroke);
+                    font-size: 15px;
+                 }
+            }
+        }
+    }
+}

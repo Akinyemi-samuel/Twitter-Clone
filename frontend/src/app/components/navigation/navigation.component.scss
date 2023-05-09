@@ -22,7 +22,7 @@
     }
     .right {
         flex: 45%;
-        padding-top: px;
+        padding-top: 2px;
 
         // .right_side {
         // //     position: sticky;
@@ -51,32 +51,21 @@
         }
     
         .left {
-            flex: 19%;
+            flex: 26%;
             padding: 0 15px;
         }
         .center {
             width: 100%;
             margin: 0 auto;
-            flex: 57%;
+            flex: 60%;
+            align-items: center;
             background-color: black;
             border-left: 1px solid var(--border-stroke);
             border-right: 1px solid var(--border-stroke);
         }
         .right {
-            flex: 40%;
+            flex: 37%;
             padding-top: px;
-    
-            // .right_side {
-            // //     position: sticky;
-            // //     top: 0;
-            // //     z-index: 1;
-            // // }
-            // }
-    
-            // .right_side{
-            //     position: fixed;
-    
-            // }
         }
     }
 }

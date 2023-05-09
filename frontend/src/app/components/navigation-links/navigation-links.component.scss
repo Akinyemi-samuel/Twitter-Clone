@@ -53,31 +53,59 @@
     }
 }
 
-// @media screen and (max-width: 1240px) {
-//     .nav_icons {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: flex-end;
+@media screen and (min-width: 1280px) {
+    .nav_icons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-sizing: border-box;
     
-//         .nav_fixed {
-//             position: fixed;
-//             svg {
-//                 width: 44px;
-//                 margin: 8px 0;
-//                 color: red;
-//                 margin-right: 10px;
-//                 font-weight: bolder;
-//                 object-fit: cover; /* Scale the image to cover its container */
-//                 padding: 8px;
-//                 margin-right: -2px;
-//                 border-radius: 50%; /* Set the border radius to make the image circular */
-//                 transition: all 0.3s ease;
-//             }
+        .nav_fixed {
+            position: fixed;
     
-//             svg:hover {
-//                 background-color: #cccccc49;
-//                 border-radius: 50%;
-//             }
-//         }
-//     }
-// }
+            .tweetbtn{
+                margin-top: 20px;
+                padding: 15px 80px;
+                border-radius: 30px;
+                background-color: var(--twitter-blue);
+            }
+    
+            .tweeticon{
+                width: 52px;
+                height: 52px;
+                background-color: var(--twitter-blue);
+                border-radius: 50%;
+            }
+    
+    
+            a span{
+                display: flex;
+                align-items: center;
+                border-radius: 50%; /* Set the border radius to make the image circular */
+                // transition: all 0.3s ease;
+    
+                p{
+                    padding: 0 10px;
+                    font-size: 20px;
+                }
+            }
+            svg {
+                width: 44px;
+                margin: 8px 0;
+                margin-right: 10px;
+                font-weight: bolder;
+                object-fit: cover; /* Scale the image to cover its container */
+                padding: 8px;
+                margin-right: -2px;
+                
+            }
+    
+            a span:hover {
+                padding: 0;
+                background-color: #cccccc18;
+                border-radius: 20px;
+            }
+            
+        }
+    }
+}
