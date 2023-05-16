@@ -15,6 +15,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Twitter-Clone</name>
 	<description>Twitter clone using Spring Boot</description>
+	<modules>
+		<module>eureka-server</module>
+	</modules>
 	<packaging>pom</packaging>
 
 	<properties>
