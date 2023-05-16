@@ -1,7 +1,0 @@
-version: "3.9"
-
-services:
-  db:
-    image: mysql:latest
-    container_name: mysql
-    restart: on-failure
