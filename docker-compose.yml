@@ -1,1 +1,26 @@
 version: "3.9"
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    restart: on-failure
+    hostname: localhost
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    networks:
+      - mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: ecommerceapp
+      MYSQL_PASSWORD: ecommerceapp
+      MYSQL_ROOT_PASSWORD: root
+
+
+
+
+
+networks:
+  mysql:
+    driver: bridge
