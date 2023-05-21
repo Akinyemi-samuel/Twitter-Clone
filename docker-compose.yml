@@ -17,10 +17,22 @@ services:
       MYSQL_PASSWORD: ecommerceapp
       MYSQL_ROOT_PASSWORD: root
 
-
-
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    restart: on-failure
+    networks:
+      - spring
+    ports:
+      - "9411:9411"
 
 
 networks:
   mysql:
     driver: bridge
+  spring:
+    driver: bridge
+
+
+volumes:
+  ./init:
