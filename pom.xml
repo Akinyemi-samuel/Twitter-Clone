@@ -17,6 +17,7 @@
 	<description>Twitter clone using Spring Boot</description>
 	<modules>
 		<module>eureka-server</module>
+		<module>config-server</module>
 	</modules>
 	<packaging>pom</packaging>
 
