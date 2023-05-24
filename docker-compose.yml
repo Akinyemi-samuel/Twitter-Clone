@@ -26,6 +26,21 @@ services:
     ports:
       - "9411:9411"
 
+  eureka-server:
+    image: eureka-server
+    container_name: eureka-server
+    restart: on-failure
+    hostname: eureka-server
+    networks:
+      - spring
+    ports:
+      - "8761:8761"
+    environment:
+      EUREKA-HOST: eureka-server
+      ZIPKIN-HOST: zipkin
+    depends_on:
+      - zipkin
+
 
 networks:
   mysql:
