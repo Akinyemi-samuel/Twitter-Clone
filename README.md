@@ -12,3 +12,5 @@ see below for pictures with every new update
 <img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/tweetbtn.png"/>
 
 <img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/explore.png"/>
+
+<img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/profilepage.png"/>
