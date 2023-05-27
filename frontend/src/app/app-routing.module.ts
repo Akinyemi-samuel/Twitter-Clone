@@ -4,7 +4,7 @@ import { SplashScreenComponent } from './components/splash-screen/splash-screen.
 import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { Authguard } from './authguard';
-import { ChildRoutingModule } from './child/child-routing.module';
+import { ChildRoutingModule } from './routing/child/child-routing.module';
 import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 
 const routes: Routes = [

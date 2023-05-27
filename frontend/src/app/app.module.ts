@@ -19,6 +19,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { TweetListComponent } from './components/tweets/tweet-list/tweet-list.component';
 import { TrendsComponent } from './components/trends/trends.component';
 import { NavigationLinksComponent } from './components/navigation-links/navigation-links.component';
+import { ProfileTweetComponent } from './components/profile/profile-tweet/profile-tweet.component';
+import { ProfileRepliesComponent } from './components/profile/profile-replies/profile-replies.component';
+import { ProfileMediaComponent } from './components/profile/profile-media/profile-media.component';
+import { ProfileLikesComponent } from './components/profile/profile-likes/profile-likes.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { NavigationLinksComponent } from './components/navigation-links/navigati
     ProfileComponent,
     TweetListComponent,
     TrendsComponent,
-    NavigationLinksComponent
+    NavigationLinksComponent,
+    ProfileTweetComponent,
+    ProfileRepliesComponent,
+    ProfileMediaComponent,
+    ProfileLikesComponent
   ],
   imports: [
     BrowserModule,

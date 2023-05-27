@@ -97,10 +97,11 @@
 
             .user_numbers {
                 display: flex;
-                padding-top: 5px;
+                padding-top: 1px;
 
                 p{
                     padding-right: 25px;
+                    font-size: 14px;
                 }
                  span{
                     color: var(--border-stroke);
@@ -109,4 +110,33 @@
             }
         }
     }
+
+    .profile_navigation_links{
+        margin-top: 15px;
+
+        .links{
+            display: flex;
+            border-bottom: 1px solid var(--border-stroke);
+
+            a{
+                flex: 25%;
+                text-align: center;
+                padding: 15px;
+                
+
+                span{
+                    padding: 15px;  
+                }
+
+                
+            }
+
+            a:hover{
+                background-color: var(--hover_color);
+            }
+        }
+    }
+}
+.activeprofilelink{
+    border-bottom: 4px solid var(--twitter-blue);
 }
