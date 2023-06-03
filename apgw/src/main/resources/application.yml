@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: apgw
+
+  config:
+    import: "optional:configserver:http://localhost:8081"
+
