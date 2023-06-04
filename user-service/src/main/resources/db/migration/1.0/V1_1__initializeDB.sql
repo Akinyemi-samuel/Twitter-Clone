@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+userId int NOT NULL AUTO_INCREMENT,
+about VARCHAR (255),
+)
