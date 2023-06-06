@@ -20,6 +20,7 @@
 		<module>config-server</module>
         <module>user-service</module>
         <module>apgw</module>
+        <module>auth-service</module>
     </modules>
 	<packaging>pom</packaging>
 
