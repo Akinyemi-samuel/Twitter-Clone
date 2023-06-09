@@ -16,10 +16,16 @@ import java.util.List;
 @Entity
 @Table(
         name = "user",
-        uniqueConstraints = @UniqueConstraint(
-                name = "email",
-                columnNames = "email"
-        )
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "email",
+                        columnNames = "email"
+                ),
+                @UniqueConstraint(
+                        name = "phone",
+                        columnNames = "phone"
+                )
+        }
 )
 public class User {
     @Id
