@@ -48,7 +48,7 @@ public class User {
     @Column(name = "bio")
     private String bio;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username")
     private String username;
 
     @Column(name = "phone")

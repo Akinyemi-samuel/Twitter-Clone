@@ -10,7 +10,7 @@ import lombok.*;
 @Setter
 @Builder
 @Entity
-@Table(name = "user_confirmation")
+@Table(name = "user_metadata")
 public class UserMetadata {
 
     @Id
