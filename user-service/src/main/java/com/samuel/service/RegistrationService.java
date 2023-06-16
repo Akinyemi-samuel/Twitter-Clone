@@ -46,6 +46,7 @@ public class RegistrationService {
         return "successfully registered user " + registrationRequest.fullName().substring(0, registrationRequest.fullName().indexOf(" "));
     }
 
+    // TODO --> LOOP OVER THE FULL NAME TO GET THE LAST NAME VALUE AND OUTPUT IT WITH THE TEXT
 //    @Transactional
 //    public String sendVerificationCode(){
 //
