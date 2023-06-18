@@ -10,7 +10,7 @@ services:
     networks:
       - mysql
     ports:
-      - "3306:3306"
+      - "3309:3306"
     environment:
       MYSQL_USER: samuel
       MYSQL_PASSWORD: samuel
@@ -32,24 +32,21 @@ services:
       - spring
     ports:
       - "8081:8081"
-    read_only: true
 
   zipkin:
     image: openzipkin/zipkin
     container_name: zipkin
     restart: on-failure
-    read_only: true
     networks:
       - spring
     ports:
       - "9411:9411"
 
   eureka-server:
-    image: eureka-server
+    image: eureka-service
     container_name: eureka-server
     restart: on-failure
     hostname: eureka-server
-    read_only: true
     networks:
       - spring
     ports:
@@ -69,6 +66,3 @@ networks:
   spring:
     driver: bridge
 
-
-volumes:
-  ./init:

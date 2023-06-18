@@ -105,8 +105,6 @@ CREATE INDEX FKpt8rurq22vf5732sa75jhm0kb ON user_statistics(user_id);
 
 CREATE INDEX FKr99xseniq62g6519wn3i3duak ON follower(user_id);
 
-CREATE INDEX flyway_schema_history_s_idx ON flyway_schema_history(success);
-
 ALTER TABLE follower ADD CONSTRAINT FK2tkyv0rmjw4t203ipp5tdob4a FOREIGN KEY (follower_id) REFERENCES user (user_id) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 ALTER TABLE user_metadata ADD CONSTRAINT FK8gkt7sisluv65lbbmt0xei6nf FOREIGN KEY (user_id) REFERENCES user (user_id) ON UPDATE RESTRICT ON DELETE RESTRICT;
