@@ -5,7 +5,6 @@ services:
     image: mysql
     container_name: mysql
     restart: on-failure
-    hostname: localhost
     volumes:
       - ./init:/docker-entrypoint-initdb.d
     networks:
@@ -13,14 +12,33 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_USER: ecommerceapp
-      MYSQL_PASSWORD: ecommerceapp
+      MYSQL_USER: samuel
+      MYSQL_PASSWORD: samuel
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: twitter
+
+  config-server:
+    image: config-server
+    container_name: config-server
+    restart: on-failure
+    hostname: config-server
+    environment:
+      EUREKA_HOST: eureka-server
+      ZIPKIN_HOST: zipkin
+      CONFIG_SERVER_HOST: config-server
+    depends_on:
+      - zipkin
+    networks:
+      - spring
+    ports:
+      - "8081:8081"
+    read_only: true
 
   zipkin:
     image: openzipkin/zipkin
     container_name: zipkin
     restart: on-failure
+    read_only: true
     networks:
       - spring
     ports:
@@ -31,15 +49,18 @@ services:
     container_name: eureka-server
     restart: on-failure
     hostname: eureka-server
+    read_only: true
     networks:
       - spring
     ports:
       - "8761:8761"
     environment:
-      EUREKA-HOST: eureka-server
-      ZIPKIN-HOST: zipkin
+      EUREKA_HOST: eureka-server
+      ZIPKIN_HOST: zipkin
+      CONFIG_SERVER_HOST: config-server
     depends_on:
       - zipkin
+      - config-server
 
 
 networks:

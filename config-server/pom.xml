@@ -38,6 +38,7 @@
 
 
     <build>
+        <finalName>config-jar-file</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
