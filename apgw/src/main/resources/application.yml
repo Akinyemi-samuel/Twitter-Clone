@@ -2,6 +2,13 @@ spring:
   application:
     name: apgw
 
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/API/V1/USERS/**
+
   config:
     import: "optional:configserver:http://localhost:8081"
-

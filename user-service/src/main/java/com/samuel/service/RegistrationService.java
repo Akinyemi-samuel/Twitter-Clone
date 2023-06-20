@@ -43,12 +43,16 @@ public class RegistrationService {
                 .build();
         userMetadataRepository.save(userMetadata);
 
-        return "successfully registered user " + registrationRequest.fullName().substring(0, registrationRequest.fullName().indexOf(" "));
+       String registeredUserLastname =  getLastnameFromFullname(registrationRequest.fullName());
+        return "successfully registered user " + registeredUserLastname;
     }
-
-    // TODO --> LOOP OVER THE FULL NAME TO GET THE LAST NAME VALUE AND OUTPUT IT WITH THE TEXT
 //    @Transactional
 //    public String sendVerificationCode(){
 //
 //    }
+
+    public String getLastnameFromFullname(String fullName){
+        String trimmedFullname = fullName.trim();
+        return trimmedFullname.substring(trimmedFullname.lastIndexOf(" ") + 1);
+    }
 }
