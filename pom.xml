@@ -20,7 +20,8 @@
 		<module>config-server</module>
         <module>user-service</module>
         <module>apgw</module>
-        <module>auth-service</module>
+        <module>email-service</module>
+        <module>common</module>
     </modules>
 	<packaging>pom</packaging>
 

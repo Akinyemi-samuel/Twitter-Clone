@@ -57,7 +57,7 @@ public class User {
     private String phone;
 
     @Column(name = "email", unique = true)
-    @Email(message = "Invalid Email Format")
+    @Email(message = "INVALID EMAIL FORMAT")
     private String email;
 
     @Column(name = "password")
@@ -100,8 +100,8 @@ public class User {
     @Column(name = "updated_at")
     private LocalDateTime UpdatedAt;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UserActivity> userActivities;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private UserActivity userActivities;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Follower> followers;
@@ -114,6 +114,9 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserMetadata userMetadata;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private ActivationToken activationToken;
 
 
 }

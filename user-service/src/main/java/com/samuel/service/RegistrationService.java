@@ -9,7 +9,6 @@ import com.samuel.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -22,6 +21,8 @@ public class RegistrationService {
 
     private final UserMetadataRepository userMetadataRepository;
 
+    private final IsEmailValid isemailValid;
+
     @Transactional
     public String registration(RegistrationRequest registrationRequest) {
 
@@ -29,6 +30,11 @@ public class RegistrationService {
 
         if (userOptional.isPresent()) {
             throw new ApiRequest("USER ALREADY EXITS", HttpStatus.CONFLICT);
+        }
+
+        Boolean isEmailValid = isemailValid.test(registrationRequest.email());
+        if (!isEmailValid){
+            throw new ApiRequest("EMAIL INVALID", HttpStatus.CONFLICT);
         }
 
         User user = User.builder()
@@ -44,7 +50,7 @@ public class RegistrationService {
         userMetadataRepository.save(userMetadata);
 
        String registeredUserLastname =  getLastnameFromFullname(registrationRequest.fullName());
-        return "successfully registered user " + registeredUserLastname;
+        return "successfully registered user: " + registeredUserLastname;
     }
 //    @Transactional
 //    public String sendVerificationCode(){
