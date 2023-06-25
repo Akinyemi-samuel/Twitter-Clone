@@ -33,7 +33,7 @@ public class RegistrationService {
         }
 
         Boolean isEmailValid = isemailValid.test(registrationRequest.email());
-        if (!isEmailValid){
+        if (!isEmailValid) {
             throw new ApiRequest("EMAIL INVALID", HttpStatus.CONFLICT);
         }
 
@@ -49,7 +49,7 @@ public class RegistrationService {
                 .build();
         userMetadataRepository.save(userMetadata);
 
-       String registeredUserLastname =  getLastnameFromFullname(registrationRequest.fullName());
+        String registeredUserLastname = getLastnameFromFullname(registrationRequest.fullName());
         return "successfully registered user: " + registeredUserLastname;
     }
 //    @Transactional
@@ -57,7 +57,7 @@ public class RegistrationService {
 //
 //    }
 
-    public String getLastnameFromFullname(String fullName){
+    public String getLastnameFromFullname(String fullName) {
         String trimmedFullname = fullName.trim();
         return trimmedFullname.substring(trimmedFullname.lastIndexOf(" ") + 1);
     }
