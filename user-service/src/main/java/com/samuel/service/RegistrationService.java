@@ -23,6 +23,8 @@ public class RegistrationService {
 
     private final IsEmailValid isemailValid;
 
+    private final ConfirmationTokenService confirmationTokenService;
+
     @Transactional
     public String registration(RegistrationRequest registrationRequest) {
 
@@ -49,14 +51,17 @@ public class RegistrationService {
                 .build();
         userMetadataRepository.save(userMetadata);
 
-        String registeredUserLastname = getLastnameFromFullname(registrationRequest.fullName());
-        return "successfully registered user: " + registeredUserLastname;
-    }
-//    @Transactional
-//    public String sendVerificationCode(){
-//
-//    }
+        String registeredUserLastname =
+                getLastnameFromFullname(registrationRequest.fullName());
 
+
+        String token = confirmationTokenService.createConfirmationToken(user);
+
+        return token;
+    }
+//
+
+    // FILTERS THE USER FULL-NAME AND GETS THE LASTNAME ONLY
     public String getLastnameFromFullname(String fullName) {
         String trimmedFullname = fullName.trim();
         return trimmedFullname.substring(trimmedFullname.lastIndexOf(" ") + 1);

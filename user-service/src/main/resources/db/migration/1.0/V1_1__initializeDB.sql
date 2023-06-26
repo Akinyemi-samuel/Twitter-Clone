@@ -1,14 +1,14 @@
-CREATE TABLE activation_token (
+CREATE TABLE confirmation_token (
   id BIGINT NOT NULL,
    token VARCHAR(255) NULL,
    created_at datetime NULL,
    expires_at datetime NULL,
    confirmed_at datetime NULL,
    user_id BIGINT NULL,
-   CONSTRAINT PK_ACTIVATION_TOKEN PRIMARY KEY (id)
+   CONSTRAINT PK_CONFIRMATION_TOKEN PRIMARY KEY (id)
 );
 
-CREATE TABLE activation_token_sequence (
+CREATE TABLE confirmation_token_seq (
   next_val BIGINT NULL
 );
 

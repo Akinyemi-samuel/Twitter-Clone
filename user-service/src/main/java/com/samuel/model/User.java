@@ -3,7 +3,6 @@ package com.samuel.model;
 import com.samuel.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -116,7 +115,7 @@ public class User {
     private UserMetadata userMetadata;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private ActivationToken activationToken;
+    private ConfirmationToken confirmationToken;
 
 
 }

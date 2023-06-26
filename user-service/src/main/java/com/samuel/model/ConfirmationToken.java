@@ -12,17 +12,17 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 @Entity
-@Table(name = "activation_token")
-public class ActivationToken {
+@Table(name = "confirmation_token")
+public class ConfirmationToken {
 
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "activation_token_generator"
+            generator = "confirmation_token_generator"
     )
     @SequenceGenerator(
-            sequenceName = "activation_token_sequence",
-            name = "activation_token_generator",
+            sequenceName = "confirmation_token_seq",
+            name = "confirmation_token_generator",
             allocationSize = 1,
             initialValue = 100
 
