@@ -6,15 +6,16 @@ import com.samuel.model.User;
 import com.samuel.model.UserMetadata;
 import com.samuel.repository.UserMetadataRepository;
 import com.samuel.repository.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class RegistrationService {
 
     private final UserRepository userRepository;
@@ -23,21 +24,20 @@ public class RegistrationService {
 
     private final IsEmailValid isemailValid;
 
+    private final EmailService emailService;
+
     private final ConfirmationTokenService confirmationTokenService;
 
     @Transactional
-    public String registration(RegistrationRequest registrationRequest) {
+    public String registration(RegistrationRequest registrationRequest, HttpServletRequest httpServletRequest) {
 
         Optional<User> userOptional = userRepository.findByEmail(registrationRequest.email());
 
-        if (userOptional.isPresent()) {
-            throw new ApiRequest("USER ALREADY EXITS", HttpStatus.CONFLICT);
-        }
+        if (userOptional.isPresent()) throw new ApiRequest("USER ALREADY EXITS", HttpStatus.CONFLICT);
 
-        Boolean isEmailValid = isemailValid.test(registrationRequest.email());
-        if (!isEmailValid) {
-            throw new ApiRequest("EMAIL INVALID", HttpStatus.CONFLICT);
-        }
+
+        boolean isEmailValid = isemailValid.test(registrationRequest.email());
+        if (!isEmailValid) throw new ApiRequest("EMAIL INVALID", HttpStatus.CONFLICT);
 
         User user = User.builder()
                 .fullname(registrationRequest.fullName())
@@ -54,16 +54,21 @@ public class RegistrationService {
         String registeredUserLastname =
                 getLastnameFromFullname(registrationRequest.fullName());
 
-
         String token = confirmationTokenService.createConfirmationToken(user);
+        String url = applicationUrl(httpServletRequest) + "/API/V1/REGISTRATION/confirm?token=" + token;
 
-        return token;
+        emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
+
+        return "Please Check your Email to confirm your registration";
     }
-//
 
     // FILTERS THE USER FULL-NAME AND GETS THE LASTNAME ONLY
-    public String getLastnameFromFullname(String fullName) {
+    private String getLastnameFromFullname(String fullName) {
         String trimmedFullname = fullName.trim();
         return trimmedFullname.substring(trimmedFullname.lastIndexOf(" ") + 1);
+    }
+
+    private String applicationUrl(HttpServletRequest request) {
+        return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
     }
 }

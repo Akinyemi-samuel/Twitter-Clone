@@ -2,6 +2,7 @@ package com.samuel.controller;
 
 import com.samuel.dto.request.RegistrationRequest;
 import com.samuel.service.RegistrationService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ public class RegistrationController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/REGISTRATION")
-    public String RegisterUser(@Valid @RequestBody RegistrationRequest registrationRequest){
-        return registrationService.registration(registrationRequest);
+    public String RegisterUser(@Valid @RequestBody RegistrationRequest registrationRequest, HttpServletRequest httpServletRequest){
+        return registrationService.registration(registrationRequest, httpServletRequest);
     }
 }
