@@ -42,6 +42,16 @@ services:
     ports:
       - "9411:9411"
 
+  mail-server:
+    image: maildev/maildev
+    container_name: maildev
+    restart: on-failure
+    networks:
+     - spring
+    ports:
+     - "1080:1080"
+     - "1025:1025"
+
   eureka-server:
     image: eureka-service
     container_name: eureka-server
