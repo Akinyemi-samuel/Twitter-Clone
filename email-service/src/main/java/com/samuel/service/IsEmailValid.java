@@ -1,6 +1,6 @@
 package com.samuel.service;
 
-import com.samuel.Exception.ApiRequest;
+import com.samuel.exception.ApiRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 

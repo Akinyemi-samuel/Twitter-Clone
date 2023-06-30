@@ -1,4 +1,4 @@
-package com.samuel.Exception;
+package com.samuel.exception;
 
 import lombok.Getter;
 import lombok.Setter;

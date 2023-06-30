@@ -1,15 +1,20 @@
 package com.samuel.service;
 
-import com.samuel.Exception.ApiRequest;
+
+import com.samuel.enums.Role;
+import com.samuel.exception.ApiRequest;
 import com.samuel.dto.request.RegistrationRequest;
 import com.samuel.model.User;
 import com.samuel.model.UserMetadata;
 import com.samuel.repository.UserMetadataRepository;
 import com.samuel.repository.UserRepository;
+import com.samuel.security.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -26,7 +31,11 @@ public class RegistrationService {
 
     private final EmailService emailService;
 
+    private final JwtService jwtService;
+
     private final ConfirmationTokenService confirmationTokenService;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public String registration(RegistrationRequest registrationRequest, HttpServletRequest httpServletRequest) {
@@ -42,6 +51,8 @@ public class RegistrationService {
         User user = User.builder()
                 .fullname(registrationRequest.fullName())
                 .email(registrationRequest.email())
+                .password(passwordEncoder.encode(registrationRequest.password()))
+                .role(Role.USER)
                 .build();
         userRepository.saveAndFlush(user);
 
@@ -60,6 +71,7 @@ public class RegistrationService {
         emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
 
         return "Please Check your Email to confirm your registration";
+
     }
 
     // FILTERS THE USER FULL-NAME AND GETS THE LASTNAME ONLY

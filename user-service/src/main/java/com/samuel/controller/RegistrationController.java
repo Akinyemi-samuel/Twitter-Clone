@@ -1,6 +1,8 @@
 package com.samuel.controller;
 
+import com.samuel.dto.request.AuthenticationRequest;
 import com.samuel.dto.request.RegistrationRequest;
+import com.samuel.service.AuthenticationService;
 import com.samuel.service.RegistrationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -20,4 +22,6 @@ public class RegistrationController {
     public String RegisterUser(@Valid @RequestBody RegistrationRequest registrationRequest, HttpServletRequest httpServletRequest){
         return registrationService.registration(registrationRequest, httpServletRequest);
     }
+
+
 }

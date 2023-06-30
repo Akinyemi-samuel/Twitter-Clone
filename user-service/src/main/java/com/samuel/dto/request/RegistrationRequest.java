@@ -13,6 +13,8 @@ public record RegistrationRequest(
         @Email(regexp = ".+@.+\\..+", message = "EMAIL_NOT_VALID")
         String email,
 
-        String dateOfBirth
+        String dateOfBirth,
+
+        String password
 ) {
 }
