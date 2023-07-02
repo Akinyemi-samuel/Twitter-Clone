@@ -1,6 +1,7 @@
 package com.samuel.service;
 
 
+import com.samuel.dto.request.PasswordRegistrationRequest;
 import com.samuel.enums.Role;
 import com.samuel.exception.ApiRequest;
 import com.samuel.dto.request.RegistrationRequest;
@@ -44,14 +45,12 @@ public class RegistrationService {
 
         if (userOptional.isPresent()) throw new ApiRequest("USER ALREADY EXITS", HttpStatus.CONFLICT);
 
-
         boolean isEmailValid = isemailValid.test(registrationRequest.email());
         if (!isEmailValid) throw new ApiRequest("EMAIL INVALID", HttpStatus.CONFLICT);
 
         User user = User.builder()
                 .fullname(registrationRequest.fullName())
                 .email(registrationRequest.email())
-                .password(passwordEncoder.encode(registrationRequest.password()))
                 .role(Role.USER)
                 .build();
         userRepository.saveAndFlush(user);
@@ -66,12 +65,22 @@ public class RegistrationService {
                 getLastnameFromFullname(registrationRequest.fullName());
 
         String token = confirmationTokenService.createConfirmationToken(user);
-        String url = applicationUrl(httpServletRequest) + "/API/V1/REGISTRATION/confirm?token=" + token;
+        String url = applicationUrl(httpServletRequest) + "/API/V1/USERS/REGISTRATION/confirm?token=" + token;
 
         emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
 
-        return "Please Check your Email to confirm your registration";
+        return token;
+        //return "Please Check your Email to confirm your registration";
 
+    }
+
+    @Transactional
+    public String passwordRegistration(String token, PasswordRegistrationRequest passwordRegistrationRequest){
+        if (passwordRegistrationRequest.password().length() < 5) throw new ApiRequest("PASSWORD TO SHORT", HttpStatus.CONFLICT);
+
+        Long userId =  confirmationTokenService.getUserByToken(token).getUserId();
+       userRepository.updatePasswordById(userId, passwordEncoder.encode(passwordRegistrationRequest.password()));
+       return "Password Updated Successfully";
     }
 
     // FILTERS THE USER FULL-NAME AND GETS THE LASTNAME ONLY

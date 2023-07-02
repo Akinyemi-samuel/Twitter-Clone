@@ -57,4 +57,12 @@ public class ConfirmationTokenService {
     public void updateTokenConfirmedAt(String token){
         confirmationTokenRepository.updateConfirmedAt(token, String.valueOf(LocalDateTime.now()));
     }
+
+    public User getUserByToken(String token){
+        ConfirmationToken confirmationToken =
+                confirmationTokenRepository.findByToken(token)
+                        .orElseThrow(()-> new RuntimeException("Verification Token does not exists"));
+
+        return  confirmationToken.getUser();
+    }
 }
