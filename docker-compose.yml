@@ -44,7 +44,7 @@ services:
 
   mail-server:
     image: maildev/maildev
-    container_name: maildev
+    container_name: maildevs
     restart: on-failure
     networks:
      - spring
