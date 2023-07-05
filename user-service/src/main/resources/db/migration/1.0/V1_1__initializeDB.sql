@@ -11,6 +11,8 @@ CREATE TABLE confirmation_token (
 CREATE TABLE confirmation_token_seq (
   next_val BIGINT NULL
 );
+INSERT INTO confirmation_token_seq (next_val) VALUES (1);
+
 
 CREATE TABLE follower (
   id BIGINT NOT NULL,
@@ -22,6 +24,7 @@ CREATE TABLE follower (
 CREATE TABLE follower_seq (
   next_val BIGINT NULL
 );
+INSERT INTO follower_seq (next_val) VALUES (100);
 
 CREATE TABLE user (
   user_id BIGINT NOT NULL,
@@ -59,6 +62,7 @@ CREATE TABLE user_activity (
 CREATE TABLE user_activity_seq (
   next_val BIGINT NULL
 );
+INSERT INTO user_activity_seq (next_val) VALUES (100);
 
 CREATE TABLE user_confirmation (
   id BIGINT NOT NULL,
@@ -71,6 +75,8 @@ CREATE TABLE user_confirmation (
 CREATE TABLE user_confirmation_seq (
   next_val BIGINT NULL
 );
+INSERT INTO user_confirmation_seq (next_val) VALUES (100);
+
 
 CREATE TABLE user_metadata (
   id BIGINT NOT NULL,
@@ -86,10 +92,12 @@ CREATE TABLE user_metadata (
 CREATE TABLE user_metadata_seq (
   next_val BIGINT NULL
 );
+INSERT INTO user_metadata_seq (next_val) VALUES (100);
 
 CREATE TABLE user_seq (
-  next_val BIGINT NULL
+  next_val BIGINT NOT NULL
 );
+INSERT INTO user_seq (next_val) VALUES (100);
 
 CREATE TABLE user_statistics (
   id BIGINT NOT NULL,
@@ -106,3 +114,4 @@ CREATE TABLE user_statistics (
 CREATE TABLE user_statistics_seq (
   next_val BIGINT NULL
 );
+INSERT INTO user_statistics_seq (next_val) VALUES (100);

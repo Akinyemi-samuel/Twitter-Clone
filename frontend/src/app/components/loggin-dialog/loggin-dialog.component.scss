@@ -88,6 +88,7 @@
             input {
                 width: 100%;
                 margin: 0 auto;
+                color: white;
                 padding: 15px;
                 background-color: var(--bg-color);
                 border-radius: 6px;
@@ -419,4 +420,15 @@
             }
         }
     }
+}
+
+.error_dialog{
+    width: 70%;
+    margin: 10px auto;
+    background-color: var(--twitter-blue);
+    color: white;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius: 7px;
+    display: none;
 }

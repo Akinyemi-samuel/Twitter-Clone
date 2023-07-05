@@ -9,15 +9,15 @@ import com.samuel.model.User;
 import com.samuel.model.UserMetadata;
 import com.samuel.repository.UserMetadataRepository;
 import com.samuel.repository.UserRepository;
-import com.samuel.security.JwtService;
+import com.samuel.config.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -44,6 +44,8 @@ public class RegistrationService {
         Optional<User> userOptional = userRepository.findByEmail(registrationRequest.email());
 
         if (userOptional.isPresent()) throw new ApiRequest("USER ALREADY EXITS", HttpStatus.CONFLICT);
+// TODO --> IF THE USER EXISTS CHECK IS THE USER EMAIL HAS BEEN VERIFIED IF NOT SEND THE
+//          USER ANOTHER OTP AND ALSO CHECK IF THE TOKEN HAS EXPIRED BEFORE SENDING THE OTP
 
         boolean isEmailValid = isemailValid.test(registrationRequest.email());
         if (!isEmailValid) throw new ApiRequest("EMAIL INVALID", HttpStatus.CONFLICT);
@@ -52,6 +54,7 @@ public class RegistrationService {
                 .fullname(registrationRequest.fullName())
                 .email(registrationRequest.email())
                 .role(Role.USER)
+                .registrationDate(LocalDateTime.now())
                 .build();
         userRepository.saveAndFlush(user);
 
@@ -75,12 +78,13 @@ public class RegistrationService {
     }
 
     @Transactional
-    public String passwordRegistration(String token, PasswordRegistrationRequest passwordRegistrationRequest){
-        if (passwordRegistrationRequest.password().length() < 5) throw new ApiRequest("PASSWORD TO SHORT", HttpStatus.CONFLICT);
+    public String passwordRegistration(String token, PasswordRegistrationRequest passwordRegistrationRequest) {
+        if (passwordRegistrationRequest.password().length() < 5)
+            throw new ApiRequest("PASSWORD TO SHORT", HttpStatus.CONFLICT);
 
-        Long userId =  confirmationTokenService.getUserByToken(token).getUserId();
-       userRepository.updatePasswordById(userId, passwordEncoder.encode(passwordRegistrationRequest.password()));
-       return "Password Updated Successfully";
+        Long userId = confirmationTokenService.getUserByToken(token).getUserId();
+        userRepository.updatePasswordById(userId, passwordEncoder.encode(passwordRegistrationRequest.password()));
+        return "Password Updated Successfully";
     }
 
     // FILTERS THE USER FULL-NAME AND GETS THE LASTNAME ONLY

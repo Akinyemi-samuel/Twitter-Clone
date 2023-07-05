@@ -23,6 +23,7 @@ import { ProfileTweetComponent } from './components/profile/profile-tweet/profil
 import { ProfileRepliesComponent } from './components/profile/profile-replies/profile-replies.component';
 import { ProfileMediaComponent } from './components/profile/profile-media/profile-media.component';
 import { ProfileLikesComponent } from './components/profile/profile-likes/profile-likes.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ProfileLikesComponent } from './components/profile/profile-likes/profil
     MatDialogModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

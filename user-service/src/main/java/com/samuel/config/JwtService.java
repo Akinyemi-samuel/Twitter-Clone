@@ -1,4 +1,4 @@
-package com.samuel.security;
+package com.samuel.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

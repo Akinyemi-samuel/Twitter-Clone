@@ -5,6 +5,9 @@
         <img class="justify-items-center" src="../../../assets/icons/twitter.png" />
     </div>
 
+    <div class="error_dialog">
+       {{error_msg}}
+    </div>
     <form [formGroup]="form" (ngSubmit)="LogInUser()">
 
         <!-- CHECKS IF THE EMAIL THE USER
@@ -48,11 +51,12 @@
             </div>
             <div class="forms">
                 <input type="text" value={{email.value}} readonly>
-                <input type="password" placeholder="Password">
+                <input type="password" formControlName="password" placeholder="Password">
                 <div class="btn_section">
                     <button type="submit">Log in</button>
                     <p>Don’t have an account? <a class="text-[var(--twitter-blue)] cursor-pointer">Sign up</a></p>
                 </div>
+               
             </div>
 
 

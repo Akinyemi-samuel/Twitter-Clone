@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
   })
 export class Authguard implements CanActivate {
     // I AM HARD CODDING THE THE USER LOGIN STATUS ... IT WILL BE UPDATED LATER AS THE PROJECT GOES ON
-    isLogged:boolean = true
+    isLogged:boolean = false
     constructor(private router: Router) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {

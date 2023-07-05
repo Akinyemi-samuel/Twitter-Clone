@@ -9,6 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class LogginDialogComponent {
   form: any;
+  error_msg!: string;
 
   constructor(
     public dialogRef: MatDialogRef<LogginDialogComponent>,
@@ -34,18 +35,32 @@ export class LogginDialogComponent {
   }
 
   LogInUser(){
-
+    const error_section = this.elRef.nativeElement.querySelector('.error_dialog')
+    if (!this.password.errors?.required) {
+      console.log(this.form.value);
+    }else{
+      this.renderer.setStyle(error_section,'display','block')
+      this.error_msg = "Fields cannot be empty"
+      setTimeout(()=>{
+        this.renderer.setStyle(error_section,'display','none')
+      }, 3000)
+    }
   }
+
   verifyUser(){
-    console.log(this.form.value);
+    const error_section = this.elRef.nativeElement.querySelector('.error_dialog')
+    const emailsection = this.elRef.nativeElement.querySelector('.email_section')
+    const passwordsection = this.elRef.nativeElement.querySelector('.password_section')
     if(!this.email.errors?.required){
-      const emailsection = this.elRef.nativeElement.querySelector('.email_section')
-      const passwordsection = this.elRef.nativeElement.querySelector('.password_section')
-  
       this.renderer.setStyle(emailsection,'display','none')
       this.renderer.setStyle(passwordsection,'display','block')
     }else{
-      console.log("object");
+      this.renderer.setStyle(error_section,'display','block')
+      this.error_msg = "Fields cannot be empty"
+      setTimeout(()=>{
+        this.renderer.setStyle(error_section,'display','none')
+      }, 3000)
+     
     }
     
 

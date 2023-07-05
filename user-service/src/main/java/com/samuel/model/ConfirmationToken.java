@@ -24,8 +24,7 @@ public class ConfirmationToken {
             sequenceName = "confirmation_token_seq",
             name = "confirmation_token_generator",
             allocationSize = 1,
-            initialValue = 100
-
+            initialValue = 1
     )
     private Long id;
 
