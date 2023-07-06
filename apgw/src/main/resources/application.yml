@@ -16,9 +16,6 @@ spring:
               - POST
               - PUT
               - DELETE
-              - PATCH
-              - OPTIONS
-              - HEAD
 
       routes:
         - id: user-service
