@@ -4,6 +4,22 @@ spring:
 
   cloud:
     gateway:
+
+      globalcors:
+        corsConfigurations:
+          '[/API/V1/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowCredentials: true
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+              - OPTIONS
+              - HEAD
+
       routes:
         - id: user-service
           uri: lb://user-service

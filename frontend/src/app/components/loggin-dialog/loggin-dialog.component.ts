@@ -1,6 +1,8 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { User } from 'src/app/model/user';
+import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 
 @Component({
   selector: 'app-loggin-dialog',
@@ -10,11 +12,13 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class LogginDialogComponent {
   form: any;
   error_msg!: string;
+  user!: User;
 
   constructor(
     public dialogRef: MatDialogRef<LogginDialogComponent>,
     private elRef: ElementRef,
-    private renderer: Renderer2){
+    private renderer: Renderer2,
+    private authenticationService: AuthenticationService){
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('',[Validators.required])
@@ -37,7 +41,13 @@ export class LogginDialogComponent {
   LogInUser(){
     const error_section = this.elRef.nativeElement.querySelector('.error_dialog')
     if (!this.password.errors?.required) {
-      console.log(this.form.value);
+      this.user = this.form.value;
+      this.authenticationService.loginUser(this.user).subscribe((data)=>{
+        console.log("sucesss");
+      }, (err)=>{
+        console.log("error"+err);
+      })
+      
     }else{
       this.renderer.setStyle(error_section,'display','block')
       this.error_msg = "Fields cannot be empty"
