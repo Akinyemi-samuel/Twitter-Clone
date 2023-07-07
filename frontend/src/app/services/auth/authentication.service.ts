@@ -11,6 +11,14 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
+  getToken(): string | null {
+    const currentUser = localStorage.getItem('currentUser');
+    return currentUser;
+  }
+
+  logoutToken() {
+    localStorage.removeItem('currentUser');
+  }
 
   loginUser(user: User) {
     const URLS = `${environment.loginUrl}`;

@@ -1,6 +1,7 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AuthenticationService } from 'src/app/services/auth/authentication.service';
 
@@ -18,7 +19,8 @@ export class LogginDialogComponent {
     public dialogRef: MatDialogRef<LogginDialogComponent>,
     private elRef: ElementRef,
     private renderer: Renderer2,
-    private authenticationService: AuthenticationService){
+    private authenticationService: AuthenticationService,
+    private router: Router){
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('',[Validators.required])
@@ -43,7 +45,8 @@ export class LogginDialogComponent {
     if (!this.password.errors?.required) {
       this.user = this.form.value;
       this.authenticationService.loginUser(this.user).subscribe((data)=>{
-        console.log("sucesss");
+        this.router.navigateByUrl('/i')
+        this.onNoClick();
       }, (err)=>{
         console.log("error"+err);
       })

@@ -8,14 +8,17 @@ spring:
       globalcors:
         corsConfigurations:
           '[/API/V1/**]':
-            allowedOrigins: "http://localhost:4200"
+            allowedOrigins: "*"
             allowedHeaders: "*"
-            allowCredentials: true
             allowedMethods:
               - GET
               - POST
               - PUT
               - DELETE
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
       routes:
         - id: user-service
