@@ -38,14 +38,26 @@ public class RegistrationService {
 
     private final PasswordEncoder passwordEncoder;
 
+
     @Transactional
     public String registration(RegistrationRequest registrationRequest, HttpServletRequest httpServletRequest) {
 
+        String registeredUserLastname =
+                getLastnameFromFullname(registrationRequest.fullName());
+
         Optional<User> userOptional = userRepository.findByEmail(registrationRequest.email());
 
-        if (userOptional.isPresent()) throw new ApiRequest("USER ALREADY EXITS", HttpStatus.CONFLICT);
-// TODO --> IF THE USER EXISTS CHECK IS THE USER EMAIL HAS BEEN VERIFIED IF NOT SEND THE
-//          USER ANOTHER OTP AND ALSO CHECK IF THE TOKEN HAS EXPIRED BEFORE SENDING THE OTP
+        if (userOptional.isPresent()){
+            User user = userOptional.get();
+            String token = confirmationTokenService.createConfirmationToken(user);
+            String url = applicationUrl(httpServletRequest) + "/API/V1/USERS/REGISTRATION/confirm?token=" + token;
+
+            if (!user.getUserConfirmation().isEmailConfirmed()){
+                emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
+                return "User {} has already been registered please go to email to confirm your registration";
+            }
+            throw new ApiRequest("USER ALREADY EXITS", HttpStatus.CONFLICT);
+        }
 
         boolean isEmailValid = isemailValid.test(registrationRequest.email());
         if (!isEmailValid) throw new ApiRequest("EMAIL INVALID", HttpStatus.CONFLICT);
@@ -64,12 +76,9 @@ public class RegistrationService {
                 .build();
         userMetadataRepository.save(userMetadata);
 
-        String registeredUserLastname =
-                getLastnameFromFullname(registrationRequest.fullName());
 
         String token = confirmationTokenService.createConfirmationToken(user);
         String url = applicationUrl(httpServletRequest) + "/API/V1/USERS/REGISTRATION/confirm?token=" + token;
-
         emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
 
         return token;
