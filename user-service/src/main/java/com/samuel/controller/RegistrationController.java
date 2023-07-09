@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("API/V1/USERS")
+@RequestMapping("API/V1/AUTH")
 @AllArgsConstructor
 public class RegistrationController {
 

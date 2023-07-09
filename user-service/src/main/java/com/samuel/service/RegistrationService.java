@@ -1,15 +1,15 @@
 package com.samuel.service;
 
 
+import com.samuel.config.JwtService;
 import com.samuel.dto.request.PasswordRegistrationRequest;
+import com.samuel.dto.request.RegistrationRequest;
 import com.samuel.enums.Role;
 import com.samuel.exception.ApiRequest;
-import com.samuel.dto.request.RegistrationRequest;
 import com.samuel.model.User;
 import com.samuel.model.UserMetadata;
 import com.samuel.repository.UserMetadataRepository;
 import com.samuel.repository.UserRepository;
-import com.samuel.config.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -32,8 +32,6 @@ public class RegistrationService {
 
     private final EmailService emailService;
 
-    private final JwtService jwtService;
-
     private final ConfirmationTokenService confirmationTokenService;
 
     private final PasswordEncoder passwordEncoder;
@@ -50,7 +48,7 @@ public class RegistrationService {
         if (userOptional.isPresent()){
             User user = userOptional.get();
             String token = confirmationTokenService.createConfirmationToken(user);
-            String url = applicationUrl(httpServletRequest) + "/API/V1/USERS/REGISTRATION/confirm?token=" + token;
+            String url = applicationUrl(httpServletRequest) + "/API/V1/AUTH/REGISTRATION/confirm?token=" + token;
 
             if (!user.getUserConfirmation().isEmailConfirmed()){
                 emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
@@ -78,7 +76,7 @@ public class RegistrationService {
 
 
         String token = confirmationTokenService.createConfirmationToken(user);
-        String url = applicationUrl(httpServletRequest) + "/API/V1/USERS/REGISTRATION/confirm?token=" + token;
+        String url = applicationUrl(httpServletRequest) + "/API/V1/AUTH/REGISTRATION/confirm?token=" + token;
         emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
 
         return token;

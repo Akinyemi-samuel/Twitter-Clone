@@ -23,7 +23,7 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .cors().and()
                 .authorizeHttpRequests()
-                .requestMatchers("/API/V1/USERS/**","/API/V1/USERS/REGISTRATION")
+                .requestMatchers("/API/V1/AUTH/**", "/API/V1/USERS/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

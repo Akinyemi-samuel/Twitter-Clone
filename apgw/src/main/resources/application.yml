@@ -23,8 +23,11 @@ spring:
       routes:
         - id: user-service
           uri: lb://user-service
+          filters:
+            - JwtAuthenticationFilter
           predicates:
-            - Path=/API/V1/USERS/**
+            - Path=/API/V1/**
+
 
   config:
     import: "optional:configserver:http://localhost:8081"
