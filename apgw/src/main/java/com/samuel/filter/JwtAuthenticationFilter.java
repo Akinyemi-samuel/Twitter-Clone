@@ -1,7 +1,6 @@
 package com.samuel.filter;
 
 import com.google.common.net.HttpHeaders;
-import com.samuel.client.UserClients;
 import com.samuel.util.JwtService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +18,14 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
     @Autowired
     private JwtService jwtService;
 
-    public JwtAuthenticationFilter(){
+    public JwtAuthenticationFilter() {
         super(Config.class);
     }
 
     @Override
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
-            if (validator.isSecured.test(exchange.getRequest())){
+            if (validator.isSecured.test(exchange.getRequest())) {
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
                     throw new RuntimeException("missing authorization header");
                 }
@@ -50,7 +49,7 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
         });
     }
 
-    public static class Config{
+    public static class Config {
 
     }
 }

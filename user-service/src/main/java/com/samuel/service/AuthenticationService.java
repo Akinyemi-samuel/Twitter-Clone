@@ -4,17 +4,12 @@ import com.samuel.config.JwtService;
 import com.samuel.dto.request.AuthenticationRequest;
 import com.samuel.dto.response.AuthenticationResponse;
 import com.samuel.exception.ApiRequest;
-import com.samuel.model.User;
 import com.samuel.repository.UserRepository;
-import io.jsonwebtoken.MalformedJwtException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service
