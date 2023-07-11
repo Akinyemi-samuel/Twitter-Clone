@@ -2,14 +2,11 @@ package com.samuel.service;
 
 import com.samuel.model.ConfirmationToken;
 import com.samuel.model.User;
-import com.samuel.model.UserConfirmation;
 import com.samuel.repository.ConfirmationTokenRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
-import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -17,7 +14,6 @@ import java.util.UUID;
 public class ConfirmationTokenService {
 
     private final ConfirmationTokenRepository confirmationTokenRepository;
-
     private final UserConfirmationService userConfirmationService;
 
 
@@ -54,6 +50,7 @@ public class ConfirmationTokenService {
     }
 
 
+    @Transactional
     public void updateTokenConfirmedAt(String token){
         confirmationTokenRepository.updateConfirmedAt(token, String.valueOf(LocalDateTime.now()));
     }

@@ -20,7 +20,6 @@ public class UserConfirmationService {
                 .user(user)
                 .emailConfirmed(true)
                 .build();
-
         userConfirmationRepository.save(userConfirmation);
     }
 }

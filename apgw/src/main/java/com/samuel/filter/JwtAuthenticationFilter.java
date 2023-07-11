@@ -7,19 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 @Component
 @AllArgsConstructor
 public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAuthenticationFilter.Config> {
 
-    @Autowired
+
     private RouterValidator validator;
+    private JwtService jwtService;
+    private RestTemplate restTemplate;
 
     @Autowired
-    private JwtService jwtService;
-
-    public JwtAuthenticationFilter() {
+    public JwtAuthenticationFilter(RestTemplate restTemplate, JwtService jwtService, RouterValidator validator) {
         super(Config.class);
+        this.restTemplate = restTemplate;
+        this.jwtService = jwtService;
+        this.validator = validator;
     }
 
     @Override
@@ -37,10 +41,19 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
                 try {
                     jwtService.validateToken(authHeader);
                     String userEmail = jwtService.extractUserName(authHeader);
-                    System.out.println(userEmail);
+                    Long userId = restTemplate.getForObject(
+                            "http://localhost:8083/API/V1/USERS/ID/{email}",
+                            Long.class,
+                            userEmail
+                    );
+                    exchange.getRequest()
+                            .mutate()
+                            .header("USER_ID_HEADER", String.valueOf(userId))
+                            .build();
 
                 } catch (Exception e) {
-                    System.out.println("invalid access...!");
+                    System.out.println("invalid access...!" +
+                            e);
                     throw new RuntimeException("un authorized access to application");
                 }
 
@@ -50,6 +63,5 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
     }
 
     public static class Config {
-
     }
 }

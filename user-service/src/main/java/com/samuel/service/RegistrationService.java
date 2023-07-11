@@ -1,7 +1,5 @@
 package com.samuel.service;
 
-
-import com.samuel.config.JwtService;
 import com.samuel.dto.request.PasswordRegistrationRequest;
 import com.samuel.dto.request.RegistrationRequest;
 import com.samuel.enums.Role;
@@ -16,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -25,22 +22,17 @@ import java.util.Optional;
 public class RegistrationService {
 
     private final UserRepository userRepository;
-
     private final UserMetadataRepository userMetadataRepository;
-
     private final IsEmailValid isemailValid;
-
     private final EmailService emailService;
-
     private final ConfirmationTokenService confirmationTokenService;
-
     private final PasswordEncoder passwordEncoder;
 
 
     @Transactional
     public String registration(RegistrationRequest registrationRequest, HttpServletRequest httpServletRequest) {
 
-        String registeredUserLastname =
+        String UserLastname =
                 getLastnameFromFullname(registrationRequest.fullName());
 
         Optional<User> userOptional = userRepository.findByEmail(registrationRequest.email());
@@ -51,8 +43,8 @@ public class RegistrationService {
             String url = applicationUrl(httpServletRequest) + "/API/V1/AUTH/REGISTRATION/confirm?token=" + token;
 
             if (!user.getUserConfirmation().isEmailConfirmed()){
-                emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
-                return "User {} has already been registered please go to email to confirm your registration";
+                emailService.send(user.getEmail(), emailService.buildEmail(UserLastname, url));
+                return "User {}" + user.getFullname() + " account has not been activated, please go to email to confirm your registration";
             }
             throw new ApiRequest("USER ALREADY EXITS", HttpStatus.CONFLICT);
         }
@@ -74,14 +66,12 @@ public class RegistrationService {
                 .build();
         userMetadataRepository.save(userMetadata);
 
-
         String token = confirmationTokenService.createConfirmationToken(user);
         String url = applicationUrl(httpServletRequest) + "/API/V1/AUTH/REGISTRATION/confirm?token=" + token;
-        emailService.send(user.getEmail(), emailService.buildEmail(registeredUserLastname, url));
+        emailService.send(user.getEmail(), emailService.buildEmail(UserLastname, url));
 
         return token;
         //return "Please Check your Email to confirm your registration";
-
     }
 
     @Transactional
