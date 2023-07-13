@@ -15,10 +15,10 @@ public class UserController {
 
     private final UserServiceImpl userService;
 
-    @GetMapping("me")
-    public String getAuthenticatedUser() {
-        return "worked";
-    }
+//    @GetMapping("me")
+//    public String getAuthenticatedUser() {
+//        return "worked";
+//    }
 
     @GetMapping("ID/{email}")
     public Long getUserIdByEmail(@PathVariable("email") String email){
