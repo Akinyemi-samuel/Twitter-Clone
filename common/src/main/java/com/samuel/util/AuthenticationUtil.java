@@ -9,7 +9,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class AuthenticationUtil {
 
-    public static Long getAuthenticatedUserId() {
+    public Long getAuthenticatedUserId() {
         RequestAttributes attribs = RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = ((ServletRequestAttributes) attribs).getRequest();
         String userId = request.getHeader("USER_ID_HEADER");
