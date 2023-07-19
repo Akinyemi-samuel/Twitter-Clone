@@ -15,9 +15,9 @@ INSERT INTO confirmation_token_seq (next_val) VALUES (1);
 
 
 CREATE TABLE follower (
-  id BIGINT NOT NULL,
-   follower_id BIGINT NULL,
+   id BIGINT NOT NULL,
    user_id BIGINT NULL,
+   following_id BIGINT NULL,
    CONSTRAINT PK_FOLLOWER PRIMARY KEY (id)
 );
 

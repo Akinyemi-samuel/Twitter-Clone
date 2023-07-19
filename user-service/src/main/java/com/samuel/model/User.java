@@ -102,9 +102,6 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserActivity userActivities;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Follower> followers;
-
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserStatistics userStatistics;
 
@@ -118,4 +115,16 @@ public class User {
     private ConfirmationToken confirmationToken;
 
 
+    public User(Long userId, String email, String fullname,
+                LocalDateTime registrationDate,
+                String password, Role role
+    ) {
+        this.userId = userId;
+        this.email = email;
+        this.fullname = fullname;
+        this.registrationDate = registrationDate;
+        this.password = password;
+        this.role = role;
+
+    }
 }
