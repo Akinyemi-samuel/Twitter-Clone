@@ -16,14 +16,14 @@ public class Follower {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
-    private long id;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "follower_id")
+    private Long follower;
 
-    @ManyToOne
-    @JoinColumn(name = "follower_id")
-    private User follower;
+    @Column(name = "following_id")
+    private Long following;
+
+
 
 }
