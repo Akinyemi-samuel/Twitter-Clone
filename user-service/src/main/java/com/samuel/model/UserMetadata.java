@@ -19,13 +19,13 @@ public class UserMetadata {
     private long id;
 
     @Column(name = "gender")
-    private long gender;
+    private String gender;
 
     @Column(name = "education")
-    private long education;
+    private String education;
 
     @Column(name = "interests")
-    private long interests;
+    private String interests;
 
     @Column(name = "birth_date")
     private String birthDate;

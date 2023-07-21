@@ -11,8 +11,10 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-
 import java.time.LocalDateTime;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)
@@ -23,7 +25,6 @@ class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-
     @AfterEach
     void setUp(){
         userRepository.deleteAll();
@@ -31,19 +32,40 @@ class UserRepositoryTest {
 
     @Test
     void findByEmail() {
+        //given
         User user = new User(
-                100L, "samuel@gmail.com",
+                100L, "samuelayo@gmail.com",
                 "Akinyemi samuel", LocalDateTime.now(),
                 null,
                 Role.USER);
         userRepository.save(user);
 
-//        User user1 = userRepository.findByEmail(user.getEmail()).get();
-//
-//        assertEquals(user1, user);
+        //when
+        User expectedUser = userRepository.findByEmail(user.getEmail()).get();
+
+        //then
+        assertEquals(user, expectedUser);
     }
 
     @Test
     void updatePasswordById() {
+        //given
+        User user = new User(
+                100L, "samuelayo@gmail.com",
+                "Akinyemi samuel", LocalDateTime.now(),
+                null,
+                Role.USER);
+        userRepository.save(user);
+
+        //when
+        String newPassword = "sammy";
+        User updatedUser = userRepository.findById(user.getUserId()).get();
+        updatedUser.setPassword(newPassword);
+        userRepository.save(updatedUser);
+
+        //then
+        assertNotNull(updatedUser);
+        assertEquals(user.getUserId(), updatedUser.getUserId());
+        assertEquals(newPassword, updatedUser.getPassword());
     }
 }
