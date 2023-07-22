@@ -81,9 +81,9 @@ INSERT INTO user_confirmation_seq (next_val) VALUES (100);
 CREATE TABLE user_metadata (
   id BIGINT NOT NULL,
    birth_date VARCHAR(255) NULL,
-   education BIGINT NULL,
-   gender BIGINT NULL,
-   interests BIGINT NULL,
+   education VARCHAR(255) NULL,
+   gender VARCHAR(255) NULL,
+   interests VARCHAR(255) NULL,
    occupation VARCHAR(255) NULL,
    user_id BIGINT NULL,
    CONSTRAINT PK_USER_METADATA PRIMARY KEY (id)

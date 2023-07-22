@@ -58,8 +58,8 @@ class UserRepositoryTest {
         userRepository.save(user);
 
         //when
-        String newPassword = "sammy";
         User updatedUser = userRepository.findById(user.getUserId()).get();
+        String newPassword = "sammy";
         updatedUser.setPassword(newPassword);
         userRepository.save(updatedUser);
 
