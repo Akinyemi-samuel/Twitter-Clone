@@ -18,11 +18,11 @@ public class Follower {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "follower_id")
+    private Long follower;
 
     @Column(name = "following_id")
-    private Long following_id;
+    private Long following;
 
 
 

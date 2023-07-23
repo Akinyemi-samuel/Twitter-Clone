@@ -15,8 +15,8 @@ INSERT INTO confirmation_token_seq (next_val) VALUES (1);
 
 
 CREATE TABLE follower (
-   id BIGINT NOT NULL,
-   user_id BIGINT NULL,
+  id BIGINT NOT NULL,
+   follower_id BIGINT NULL,
    following_id BIGINT NULL,
    CONSTRAINT PK_FOLLOWER PRIMARY KEY (id)
 );
@@ -26,7 +26,7 @@ CREATE TABLE follower_seq (
 );
 INSERT INTO follower_seq (next_val) VALUES (100);
 
-CREATE TABLE user (
+CREATE TABLE users (
   user_id BIGINT NOT NULL,
    updated_at datetime NULL,
    banner_image VARCHAR(255) NULL,
@@ -44,7 +44,7 @@ CREATE TABLE user (
    registration_date datetime NULL,
    `role` VARCHAR(255) NULL,
    username VARCHAR(255) NULL,
-   verified BIT(1) DEFAULT 0 NULL,
+   verified BOOLEAN DEFAULT 0 NULL,
    website VARCHAR(255) NULL,
    CONSTRAINT PK_USER PRIMARY KEY (user_id),
    UNIQUE (email),
@@ -66,8 +66,8 @@ INSERT INTO user_activity_seq (next_val) VALUES (100);
 
 CREATE TABLE user_confirmation (
   id BIGINT NOT NULL,
-   email_confirmed BIT(1) DEFAULT 0 NULL,
-   phone_confirmed BIT(1) DEFAULT 0 NULL,
+   email_confirmed BOOLEAN DEFAULT 0 NULL,
+   phone_confirmed BOOLEAN DEFAULT 0 NULL,
    user_id BIGINT NULL,
    CONSTRAINT PK_USER_CONFIRMATION PRIMARY KEY (id)
 );
@@ -81,9 +81,9 @@ INSERT INTO user_confirmation_seq (next_val) VALUES (100);
 CREATE TABLE user_metadata (
   id BIGINT NOT NULL,
    birth_date VARCHAR(255) NULL,
-   education BIGINT NULL,
-   gender BIGINT NULL,
-   interests BIGINT NULL,
+   education VARCHAR(255) NULL,
+   gender VARCHAR(255) NULL,
+   interests VARCHAR(255) NULL,
    occupation VARCHAR(255) NULL,
    user_id BIGINT NULL,
    CONSTRAINT PK_USER_METADATA PRIMARY KEY (id)

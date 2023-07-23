@@ -4,9 +4,11 @@ import com.samuel.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @ToString
 @AllArgsConstructor
@@ -16,7 +18,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(
-        name = "user",
+        name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(
                         name = "email",
@@ -115,16 +117,29 @@ public class User {
     private ConfirmationToken confirmationToken;
 
 
-    public User(Long userId, String email, String fullname,
-                LocalDateTime registrationDate,
-                String password, Role role
-    ) {
-        this.userId = userId;
-        this.email = email;
-        this.fullname = fullname;
-        this.registrationDate = registrationDate;
-        this.password = password;
-        this.role = role;
+    public User(long userId, String email, String fullname, LocalDateTime registrationDate, String password, Role role) {
+    this.userId = userId;
+    this.email = email;
+    this.fullname = fullname;
+    this.registrationDate = registrationDate;
+    this.password = password;
+    this.role = role;
+    }
 
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        User user = (User) o;
+        return getUserId() != null && Objects.equals(getUserId(), user.getUserId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return getClass().hashCode();
     }
 }
+
