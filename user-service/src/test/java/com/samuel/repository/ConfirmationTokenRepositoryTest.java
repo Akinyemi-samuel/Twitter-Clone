@@ -49,5 +49,24 @@ class ConfirmationTokenRepositoryTest {
 
     @Test
     void updateConfirmedAt() {
+        //given
+        String token = "token";
+        ConfirmationToken unConfirmedUser =
+                new ConfirmationToken(
+                        100L, token, LocalDateTime.now(),
+                        LocalDateTime.now().plusMinutes(15),
+                        null,
+                        null
+                );
+        confirmationTokenRepository.save(unConfirmedUser);
+
+        //when
+        ConfirmationToken ConfirmedUser = confirmationTokenRepository.findByToken(token).get();
+        ConfirmedUser.setConfirmedAt(LocalDateTime.now());
+        confirmationTokenRepository.save(ConfirmedUser);
+
+        //then
+        LocalDateTime confirmed_at = confirmationTokenRepository.findByToken(token).get().getConfirmedAt();
+        assertNotNull(confirmed_at);
     }
 }
