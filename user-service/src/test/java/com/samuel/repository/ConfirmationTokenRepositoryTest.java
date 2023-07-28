@@ -2,6 +2,7 @@ package com.samuel.repository;
 
 import com.samuel.model.ConfirmationToken;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ class ConfirmationTokenRepositoryTest {
     }
 
     @Test
+    @DisplayName("Test if the method *findByToken()* fetches the ConfirmationToken Object from the DB")
     void findByToken() {
         String token = "token";
         ConfirmationToken confirmationToken =
@@ -41,10 +43,10 @@ class ConfirmationTokenRepositoryTest {
                 );
         confirmationTokenRepository.save(confirmationToken);
 
-      String result = confirmationTokenRepository.findByToken(token).get().getToken();
+        String result = confirmationTokenRepository.findByToken(token).get().getToken();
 
-      assertNotNull(token);
-      assertEquals(token, result);
+        assertNotNull(token);
+        assertEquals(token, result);
     }
 
     @Test
