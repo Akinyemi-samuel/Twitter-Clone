@@ -42,7 +42,7 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
                     jwtService.validateToken(authHeader);
                     String userEmail = jwtService.extractUserName(authHeader);
                     Long userId = restTemplate.getForObject(
-                            "http://localhost:8083/API/V1/USERS/ID/{email}",
+                            "http://localhost:8083/API/V1/USER/ID/{email}",
                             Long.class,
                             userEmail
                     );

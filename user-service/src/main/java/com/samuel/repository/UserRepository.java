@@ -10,6 +10,13 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
+
+    @Query(
+            nativeQuery = true,
+            value = "SELECT * FROM users where user_id = :userId"
+    )
+    <T> Optional<T> findUserById(Long userId, Class<T> type);
+
     Optional<User> findByEmail(String email);
 
     @Transactional
@@ -19,4 +26,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
             nativeQuery = true
     )
     void updatePasswordById(Long userId, String password);
+
+
 }

@@ -15,4 +15,5 @@ public class UserServiceImpl {
     public Long getUserIdByEmail(String email) {
       return userRepository.findByEmail(email).get().getUserId();
     }
+
 }

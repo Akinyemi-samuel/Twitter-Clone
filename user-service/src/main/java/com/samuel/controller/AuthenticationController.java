@@ -3,6 +3,7 @@ package com.samuel.controller;
 import com.samuel.dto.request.AuthenticationRequest;
 import com.samuel.dto.response.AuthenticationResponse;
 import com.samuel.service.AuthenticationService;
+import com.samuel.util.AuthenticationUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
-   // private final AuthenticationUtil authenticationUtil;
 
 
     @PostMapping("/LOGIN")
@@ -23,7 +23,7 @@ public class AuthenticationController {
 
 //    @GetMapping("ID")
 //    public Long getAuthenticatedUserIds(){
-//        return authenticationUtil.getAuthenticatedUserId();
+//        //return authenticationUtil.getAuthenticatedUserId();
 //    }
 
 }

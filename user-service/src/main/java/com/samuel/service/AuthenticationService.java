@@ -5,6 +5,8 @@ import com.samuel.dto.request.AuthenticationRequest;
 import com.samuel.dto.response.AuthenticationResponse;
 import com.samuel.exception.ApiRequest;
 import com.samuel.repository.UserRepository;
+import com.samuel.repository.projection.UserProfileProjection;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,6 +14,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Service
 @AllArgsConstructor
@@ -21,6 +26,14 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
 
+    public Long UserId() {
+        return getAuthenticatedUserId();
+    }
+
+    public UserProfileProjection getAuthenticatedUser(){
+        return userRepository.findUserById(UserId(), UserProfileProjection.class)
+                .orElseThrow(()-> new ApiRequest("USER_NOT_FOUND", HttpStatus.NOT_FOUND));
+    }
 
    @Transactional
     public AuthenticationResponse login(AuthenticationRequest authenticationRequest){
@@ -40,5 +53,15 @@ public class AuthenticationService {
                     .token(token)
                     .build();
         }
+    }
+
+    //RETRIEVES THE AUTHENTICATED USER ID FORM REQUEST HEADER
+    private Long getAuthenticatedUserId() {
+        RequestAttributes attribs = RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = ((ServletRequestAttributes) attribs).getRequest();
+        String userId = request.getHeader("USER_ID_HEADER");
+
+        if (userId == null) throw new ApiRequest("USER_NOT_FOUND", HttpStatus.NOT_FOUND);
+        else return Long.parseLong(userId);
     }
 }

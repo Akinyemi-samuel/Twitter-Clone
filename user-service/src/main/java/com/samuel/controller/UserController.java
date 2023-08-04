@@ -1,23 +1,25 @@
 package com.samuel.controller;
 
+import com.samuel.repository.projection.UserProfileProjection;
+import com.samuel.service.AuthenticationService;
 import com.samuel.service.UserServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("API/V1/USERS")
+@RequestMapping("API/V1/USER")
 @AllArgsConstructor
 public class UserController {
 
     private final UserServiceImpl userService;
+    private final AuthenticationService authenticationService;
 
-    @GetMapping("me")
-    public String getAuthenticatedUser() {
-        return "worked";
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("USER_ID")
+    public UserProfileProjection getAuthenticatedUser() {
+        return authenticationService.getAuthenticatedUser();
     }
 
     @GetMapping("ID/{email}")
