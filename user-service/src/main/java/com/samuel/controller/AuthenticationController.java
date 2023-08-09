@@ -21,9 +21,4 @@ public class AuthenticationController {
         return authenticationService.login(request);
     }
 
-//    @GetMapping("ID")
-//    public Long getAuthenticatedUserIds(){
-//        //return authenticationUtil.getAuthenticatedUserId();
-//    }
-
 }
