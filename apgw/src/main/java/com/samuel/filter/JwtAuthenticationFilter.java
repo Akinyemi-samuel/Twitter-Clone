@@ -52,8 +52,6 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
                             .build();
 
                 } catch (Exception e) {
-                    System.out.println("invalid access...!" +
-                            e);
                     throw new RuntimeException("un authorized access to application");
                 }
 

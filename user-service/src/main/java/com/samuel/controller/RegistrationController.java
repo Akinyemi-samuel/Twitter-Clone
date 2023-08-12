@@ -1,9 +1,7 @@
 package com.samuel.controller;
 
-import com.samuel.dto.request.AuthenticationRequest;
 import com.samuel.dto.request.PasswordRegistrationRequest;
 import com.samuel.dto.request.RegistrationRequest;
-import com.samuel.service.AuthenticationService;
 import com.samuel.service.ConfirmationTokenService;
 import com.samuel.service.RegistrationService;
 import jakarta.servlet.http.HttpServletRequest;

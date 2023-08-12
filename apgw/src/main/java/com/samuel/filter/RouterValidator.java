@@ -14,7 +14,7 @@ public class RouterValidator {
             "API/V1/AUTH/REGISTRATION/confirm"
     );
 
-    //True if none of the httpRequest does not match the openApiEndpoints
+    //Returns True if none of the httpRequest does not match the openApiEndpoints
     public Predicate<ServerHttpRequest> isSecured =
             request -> openApiEndpoints
                     .stream()

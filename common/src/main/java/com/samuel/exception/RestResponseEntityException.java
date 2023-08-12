@@ -10,15 +10,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class RestResponseEntityException extends ResponseEntityExceptionHandler {
 
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    public ResponseEntity<String> handleValidationExceptions(MethodArgumentNotValidException ex) {
-//        List<ObjectError> errors = ex.getBindingResult().getAllErrors();
-//        String errorMessage = errors.stream()
-//                .map(ObjectError::getDefaultMessage)
-//                .collect(Collectors.joining(", "));
-//        return ResponseEntity.badRequest().body(errorMessage);
-//    }
-
     @ExceptionHandler(ApiRequest.class)
     public ResponseEntity<Object> handleUserExists(ApiRequest apiRequest){
         ApiRequest apiRequest1 = new ApiRequest(apiRequest.getMessage(), apiRequest.getHttpStatus() );
