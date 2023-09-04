@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
 
   getUserDetails(){
     this.userService.getUserProfileDetails().subscribe((data)=>{
-      console.log(data);
       this.userProfile = data;
     }, (err)=>{
       console.log(err);

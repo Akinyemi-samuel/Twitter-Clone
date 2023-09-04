@@ -22,7 +22,8 @@
         <module>apgw</module>
         <module>email-service</module>
         <module>common</module>
-    </modules>
+		<module>tweet-service</module>
+	</modules>
 	<packaging>pom</packaging>
 
 	<properties>

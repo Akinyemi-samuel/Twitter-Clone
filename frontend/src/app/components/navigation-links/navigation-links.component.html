@@ -148,7 +148,7 @@
         </a>
 
         <!-- Profile icon -->
-        <a routerLink="samuel" routerLinkActive #pla="routerLinkActive">
+        <a routerLink="{{userProfile?.username}}" routerLinkActive #pla="routerLinkActive">
             <span *ngIf="pla.isActive">
                 <svg id="profileIconFilled" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <g>
