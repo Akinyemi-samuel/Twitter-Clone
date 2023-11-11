@@ -6,7 +6,7 @@ spring:
     locations: classpath:db/migration
 
   datasource:
-    url: jdbc:mysql://localhost:3309/twitter
+    url: jdbc:mysql://localhost:3309/user
     username: samuel
     password: samuel
     driver-class-name: com.mysql.cj.jdbc.Driver

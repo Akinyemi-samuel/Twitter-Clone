@@ -1,21 +1,29 @@
-version: "3.9"
+version: "3.1"
 
 services:
   mysql:
     image: mysql
     container_name: mysql
     restart: on-failure
-    volumes:
-      - ./init:/docker-entrypoint-initdb.d
-    networks:
-      - mysql
     ports:
       - "3309:3306"
     environment:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: samuel
       MYSQL_PASSWORD: samuel
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: twitter
+
+
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    restart: always
+    links:
+      - mysql:db
+    ports:
+      - 8080:8080
+
 
   config-server:
     image: config-server
@@ -68,6 +76,7 @@ services:
     depends_on:
       - zipkin
       - config-server
+
 
 
 networks:
