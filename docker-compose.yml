@@ -26,7 +26,7 @@ services:
 
 
   config-server:
-    image: config-server
+    image: samfrosh/config-server
     container_name: config-server
     restart: on-failure
     hostname: config-server
@@ -61,7 +61,7 @@ services:
      - "1025:1025"
 
   eureka-server:
-    image: eureka-service
+    image: samfrosh/eureka-server
     container_name: eureka-server
     restart: on-failure
     hostname: eureka-server

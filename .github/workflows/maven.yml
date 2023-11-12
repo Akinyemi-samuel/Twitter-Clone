@@ -38,14 +38,15 @@ jobs:
           cd ..
 
 
-#      - name: Build and push Docker image for user-service
-#        run: |
-#          cd user-service
-#          mvn clean package -Pprod -DskipTests
-#          docker build -t ${{ secrets.DOCKER_USERNAME }}/user-service:latest .
-#          docker push ${{ secrets.DOCKER_USERNAME }}/user-service:latest
-#          cd ..
-#
+      - name: Build and push Docker image for eureka-server
+        run: |
+          cd eureka-server
+          mvn clean install
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/eureka-server:latest .
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/eureka-server:latest
+          cd ..
+
 #      - name: Build and push Docker image for user-service
 #        run: |
 #          cd user-service
