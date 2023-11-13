@@ -47,7 +47,7 @@ services:
       - "1025:1025"
 
   api-gateway:
-    image: samfrosh/api-gateway
+    image: samfrosh/api-gateway:latest
     container_name: api-gateway
     restart: on-failure
     hostname: api-gateway
@@ -61,7 +61,7 @@ services:
       EUREKA_HOST_URL_DEFAULTZONE: http://eureka-server:8761/eureka
       ZIPKIN_HOST: zipkin
       CONFIG_SERVER_HOST: config-server
-      CONFIG_SERVER_URL_IMPORT: "optional:config-server:http://localhost:8081"
+      CONFIG_SERVER_URL_IMPORT: "optional:configserver:http://config-server:8081"
     depends_on:
       - zipkin
       - config-server
@@ -69,7 +69,7 @@ services:
 
 
   config-server:
-    image: samfrosh/config-server
+    image: samfrosh/config-server:latest
     container_name: config-server
     restart: on-failure
     hostname: config-server
@@ -86,7 +86,7 @@ services:
 
 
   eureka-server:
-    image: samfrosh/eureka-server
+    image: samfrosh/eureka-server:latest
     container_name: eureka-server
     restart: on-failure
     hostname: eureka-server
