@@ -3,4 +3,4 @@ spring:
     name: eureka-server
 
   config:
-    import: ${CONFIG_SERVER_URL_IMPORT}
+    import: "optional:configserver:http://localhost:8081"

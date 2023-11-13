@@ -61,7 +61,7 @@ services:
       EUREKA_HOST_URL_DEFAULTZONE: http://eureka-server:8761/eureka
       ZIPKIN_HOST: zipkin
       CONFIG_SERVER_HOST: config-server
-      CONFIG_SERVER_URL_IMPORT: "optional:configserver:http://localhost:8081"
+      CONFIG_SERVER_URL_IMPORT: "optional:config-server:http://localhost:8081"
     depends_on:
       - zipkin
       - config-server
