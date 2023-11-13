@@ -47,6 +47,15 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/eureka-server:latest
           cd ..
 
+      - name: Build and push Docker image for api-gateway
+        run: |
+          cd apgw
+          mvn clean install
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest .
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest
+          cd ..          
+
 #      - name: Build and push Docker image for user-service
 #        run: |
 #          cd user-service

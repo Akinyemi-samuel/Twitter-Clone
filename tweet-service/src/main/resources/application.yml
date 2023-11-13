@@ -5,6 +5,22 @@ spring:
   application:
     name: tweet-service
 
+  datasource:
+    url: jdbc:mysql://localhost:3309/tweet
+    username: samuel
+    password: samuel
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+
+
 eureka:
   instance:
     hostname: localhost
