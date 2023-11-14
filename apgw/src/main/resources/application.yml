@@ -30,4 +30,4 @@ spring:
 
 
   config:
-    import: "optional:configserver:http://localhost:8081"
+    import: ${CONFIG_SERVER_URL_IMPORT}
