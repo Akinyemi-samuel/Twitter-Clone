@@ -30,4 +30,4 @@ spring:
 
 
   config:
-    import: "optional:configserver:http://192.168.110.1:8081"
+    import: optional:configserver:http://${CONFIG_SERVER_HOST:localhost}:8081

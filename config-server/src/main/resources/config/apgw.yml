@@ -9,7 +9,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://192.168.110.1:8761/eureka
+      defaultZone: ${EUREKA_HOST_URL_DEFAULTZONE}
 
 
 management:
