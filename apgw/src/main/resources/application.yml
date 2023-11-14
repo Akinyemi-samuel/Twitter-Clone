@@ -28,6 +28,5 @@ spring:
           predicates:
             - Path=/API/V1/**
 
-
-  config:
-    import: "optional:configserver:http://localhost:8081"
+    config:
+      uri: http://localhost:8081
