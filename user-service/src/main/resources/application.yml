@@ -6,7 +6,7 @@ spring:
     name: user-service
 
   config:
-    import: "optional:configserver:http://localhost:8081"
+    import: optional:configserver:http://${CONFIG_SERVER_HOST:localhost}:8081
 
 #  mail:
 #    host: smtp.gmail.com

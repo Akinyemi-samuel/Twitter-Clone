@@ -50,7 +50,7 @@ services:
     image: samfrosh/api-gateway:latest
     container_name: api-gateway
     restart: on-failure
-    hostname: localhost
+    hostname: api-gateway
     networks:
       - spring
     ports:
@@ -60,7 +60,6 @@ services:
       EUREKA_HOST: eureka-server
       ZIPKIN_HOST: zipkin
       CONFIG_SERVER_HOST: config-server
-      CONFIG_SERVER_URL_IMPORT: optional:configserver:http://localhost:8081
     depends_on:
       - zipkin
       - config-server
@@ -71,13 +70,14 @@ services:
     image: samfrosh/config-server:latest
     container_name: config-server
     restart: on-failure
-    hostname: localhost
+    hostname: config-server
     environment:
       EUREKA_HOST: eureka-server
       ZIPKIN_HOST: zipkin
       CONFIG_SERVER_HOST: config-server
     depends_on:
       - zipkin
+      - eureka-server
     networks:
       - spring
     ports:
@@ -88,7 +88,7 @@ services:
     image: samfrosh/eureka-server:latest
     container_name: eureka-server
     restart: on-failure
-    hostname: localhost
+    hostname: eureka-server
     networks:
       - spring
     ports:
@@ -99,7 +99,6 @@ services:
       CONFIG_SERVER_HOST: config-server
     depends_on:
       - zipkin
-      - config-server
 
 networks:
   mysql:
