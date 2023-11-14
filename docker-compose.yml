@@ -86,7 +86,7 @@ services:
 
 
   eureka-server:
-    image: eureka-service
+    image: samfrosh/eureka-server:latest
     container_name: eureka-server
     restart: on-failure
     hostname: localhost
@@ -96,7 +96,7 @@ services:
       - "8761:8761"
     environment:
       EUREKA_HOST: eureka-server
-      EUREKA_HOST_URL_DEFAULTZONE: http://eureka-server:8761/eureka
+      EUREKA_HOST_URL_DEFAULTZONE: http://localhost:8761/eureka
       ZIPKIN_HOST: zipkin
       CONFIG_SERVER_HOST: config-server
       CONFIG_SERVER_URL_IMPORT: "optional:configserver:http://localhost:8081"
