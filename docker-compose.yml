@@ -104,6 +104,11 @@ services:
       - zipkin
       - config-server
 
+networks:
+  mysql:
+    driver: bridge
+  spring:
+    driver: bridge
 
 #  tweet-service:
 #    image: samfrosh/tweeet-service
@@ -146,11 +151,4 @@ services:
 #      - mysql
 #    ports:
 #      - "8083:8083"
-
-
-networks:
-  mysql:
-    driver: bridge
-  spring:
-    driver: bridge
 
