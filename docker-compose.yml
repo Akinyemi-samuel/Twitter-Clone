@@ -62,8 +62,8 @@ services:
       CONFIG_SERVER_HOST: config-server
     depends_on:
       - zipkin
-      - config-server
       - eureka-server
+      - config-server
 
 
   config-server:
