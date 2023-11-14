@@ -58,7 +58,7 @@ services:
     environment:
       API_GATEWAY_HOST: api-gateway
       EUREKA_HOST: eureka-server
-      EUREKA_HOST_URL_DEFAULTZONE: http://eureka-server:8761/eureka
+      EUREKA_HOST_URL_DEFAULTZONE: http://localhost:8761/eureka
       ZIPKIN_HOST: zipkin
       CONFIG_SERVER_HOST: config-server
       CONFIG_SERVER_URL_IMPORT: "optional:configserver:http://config-server:8081"
@@ -86,7 +86,7 @@ services:
 
 
   eureka-server:
-    image: samfrosh/eureka-server:latest
+    image: eureka-service
     container_name: eureka-server
     restart: on-failure
     hostname: localhost
