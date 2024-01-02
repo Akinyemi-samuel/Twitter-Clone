@@ -8,8 +8,8 @@ import { UserService } from "./services/user/user.service";
     providedIn: 'root'
   })
 export class Authguard implements CanActivate {
-    // I AM HARD CODDING THE THE USER LOGIN STATUS ... IT WILL BE UPDATED LATER AS THE PROJECT GOES ON
-    isLogged:boolean = false
+
+  isLogged:boolean = false
     constructor(private router: Router, private Auth: AuthenticationService,
          private userService: UserService) {}
 
@@ -21,16 +21,16 @@ export class Authguard implements CanActivate {
 
     authenticateUser(){
          if(this.Auth.getToken() != null){
-          this.isLogged = true
+          //this.isLogged = true
           this.userService.getUserProfileDetails().subscribe((data)=>{
             this.isLogged = true
           }, (err)=>{
             this.isLogged = false
-            this.router.navigateByUrl('/loggedout')
+            this.router.navigateByUrl('/logout')
           })
          }else{
             this.isLogged = false
-            this.router.navigateByUrl('/loggedout')
+            this.router.navigateByUrl('/logout')
           }
          return this.isLogged
     }

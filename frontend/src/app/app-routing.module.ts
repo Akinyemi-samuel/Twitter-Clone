@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/splashscreen', pathMatch: 'full' },
   { path: 'splashscreen', component: SplashScreenComponent },
   { path: 'i', component: NavigationComponent, canActivate: [Authguard], loadChildren: () => ChildRoutingModule },
-  { path: 'loggedout', component: LoggedOutComponent }
+  { path: 'logout', component: LoggedOutComponent }
 
 ];
 
