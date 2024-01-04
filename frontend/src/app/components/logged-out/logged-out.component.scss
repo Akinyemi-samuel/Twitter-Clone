@@ -1,375 +1,310 @@
-.explore {
+.logout {
   background-color: var(--bg-color);
   width: 100%;
+  height: 100%;
+  padding: 0 2rem;
 
-  .explore_content {
-    max-width: 1250px;
-    margin: 0 auto;
-    color: var(--text-color);
-    display: flex;
-
-    .icon_section {
-      flex: 18%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      border-right: 1px solid var(--border-stroke);
-      padding: 0 25px;
-
-      .icons_items {
-        padding: 20px 0;
-        position: fixed;
-        height: 100vh;
-
-        img {
-          width: 30px;
-          height: 30px;
-          padding: 1px;
-        }
-
-        img:hover {
-          background-color: rgba(255, 255, 255, 0.356);
-          border-radius: 50%;
-        }
-      }
-    }
-
-    .explore_section {
-      flex: 70%;
-      border-right: 1px solid var(--border-stroke);
-      padding: 0 20px;
-      padding-bottom: 100px;
-    }
-
-    .login_reg {
-      flex: 55%;
-      padding: 0 20px;
-      color: var(--text-color);
-
-      .login_items {
-        width: 83%;
-        margin-top: 20px;
-        border: 1px solid var(--border-stroke);
-        padding: 10px 10px;
-        border-radius: 10px;
-        font-family: "Roboto", sans-serif;
-
-        .details {
-          h2 {
-            font-size: 1.2em;
-            font-family:
-              "TwitterChirp",
-              -apple-system,
-              BlinkMacSystemFont,
-              "Segoe UI",
-              Roboto,
-              Helvetica,
-              Arial,
-              sans-serif;
-            font-weight: 800;
-            padding: 1px 0;
-          }
-
-          p {
-            width: 100%;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            font-size: 13px;
-            font-family: "Roboto", sans-serif;
-            color: var(--border-stroke);
-          }
-        }
-
-        .buttons {
-          display: flex;
-          flex-direction: column;
-
-          a {
-            display: flex;
-            width: 94%;
-            cursor: pointer;
-            background-color: var(--text-color);
-            margin: 8px 0;
-            color: var(--bg-color);
-            font-weight: bold;
-            font-family: "Roboto", sans-serif;
-            padding: 8px;
-            border-radius: 30px;
-
-            p {
-              color: var(--bg-color);
-            }
-          }
-        }
-
-        p {
-          color: var(--border-stroke);
-          width: 90%;
-
-          a {
-            color: var(--twitter-blue);
-          }
-        }
-      }
-    }
-
-    .fixed_bar {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 10px;
-      background-color: var(--twitter-blue);
-
-      .item2 {
-        a:first-of-type {
-          background-color: var(--twitter-blue);
-          color: white;
-          border: 1px solid white;
-        }
-
-        a {
-          border-radius: 20px;
-          background-color: white;
-          padding: 9px 20px;
-          margin: 0 10px;
-          color: black;
-          font-family: "Roboto", sans-serif;
-          font-weight: bold;
-          cursor: pointer;
-        }
-      }
-
-      .item1 {
-        font-family: "Roboto", sans-serif;
-
-        h2 {
-          font-weight: bold;
-          font-size: 23px;
-        }
-
-        p {
-          font-size: 14px;
-        }
-      }
-    }
-  }
-}
-
-// @media screen and (max-width: 900px) {
-//   .explore {
-//     .explore_content {
-//       .login_reg {
-//         display: none;
-//       }
-
-//       .fixed_bar {
-//         padding: 20px 0;
-
-//         .item1 {
-//           display: none;
-//         }
-
-//         .item2 {
-//           a {
-//             border-radius: 20px;
-//             background-color: white;
-//             padding: 9px 50px;
-//             margin: 0 10px;
-//             color: black;
-//             font-family: "Roboto", sans-serif;
-//             font-weight: bold;
-//             width: 100%;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 500px) {
-//   .explore {
-//     .explore_content {
-//       .icon_section {
-//         display: none;
-//       }
-//     }
-//   }
-// }
-
-.log_out_background {
-  background-color: var(--bg-color);
-  width: 100%;
-  height: 100vh;
-  display: flex;
-
-  .left-section,
-  .right-section {
-    flex: 1;
-    height: 100vh;
-  }
-
-  .left-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img{
-      width: 28rem;
-    }
-  }
-
-  .right-section {
-    display: flex;
-    align-items: center;
-    color: var(--text-color);
-
-    h1 {
-      font-size: 4.3rem;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-weight: bold;
-    }
-
-    h3 {
-      margin: 2rem 0;
-      font-size: 1.8rem;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-weight: bold;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      width: 70%;
-
-      a {
-        display: flex;
-        width: 94%;
-        cursor: pointer;
-        background-color: var(--text-color);
-        margin: 8px 0;
-        color: var(--bg-color);
-        font-weight: bold;
-        font-family: "Roboto", sans-serif;
-        padding: 8px;
-        border-radius: 30px;
-
-        p {
-          color: var(--bg-color);
-        }
-      }
-
-      a:last-child {
-        background-color: var(--twitter-blue);
-        color: var(--text-color);
-      }
-
-      .or-section {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin: 5px 0; /* Adjust margin as needed */
-      }
-
-      .or-line {
-        flex: 1;
-        border: none;
-        border-top: 1px solid var(--border-stroke); /* Style of the horizontal line */
-        margin: 0 8px; /* Adjust margin as needed */
-      }
-    }
-
-    p {
-      color: var(--border-stroke);
-      width: 70%;
-
-      a {
-        color: var(--twitter-blue);
-      }
-    }
-
-    .have_account{
-      h3{
-        margin-top: 50px;
-        font-size: 1rem;
-        font-family: "Source Sans Pro";
-        line-height: 0rem;
-
-      }
-
-      a{
-        display: flex;
-        width: 65%;
-        cursor: pointer;
-        border: 1px solid var(--border-stroke);
-        margin: 8px 0;
-        color: var(--twitter-blue);
-        font-weight: bold;
-        font-family: "Roboto", sans-serif;
-        padding: 8px;
-        border-radius: 30px;
-      }
-
-      a:hover{
-        background-color: #1da0f21f;
-      }
-    }
-  }
-}
-
-
-// Smaller screen responsiveness
-@media screen and (max-width: 968px) {
   .log_out_background {
-    padding-top: 1.8rem;
-    padding-left: 20%;
-    padding-right: 5%;
-    flex-direction: column;
+    display: flex;
+    .left-section,
+    .right-section {
+      flex: 1;
+      height: 95vh;
+    }
 
     .left-section {
-      flex: 15%;
-      align-items: flex-start;
-      justify-content: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       img {
-        width: 4.7rem;
+        width: 28rem;
       }
     }
 
     .right-section {
-      flex: 85%;
-      align-items: flex-start;
-      justify-content: left;
+      display: flex;
+      align-items: center;
+      color: var(--text-color);
 
       h1 {
-        font-size: 3.2rem;
-        width: 200px;
-        line-height: 6rem;
+        font-size: 4.3rem;
+        font-family:
+          "TwitterChirp",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        font-weight: bold;
+      }
+
+      h3 {
+        margin: 2rem 0;
+        font-size: 1.8rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
       }
 
       .buttons {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 55%;
+
+        a {
+          display: flex;
+          width: 94%;
+          cursor: pointer;
+          background-color: var(--text-color);
+          margin: 8px 0;
+          color: var(--bg-color);
+          font-weight: bold;
+          font-family: "Roboto", sans-serif;
+          padding: 8px;
+          border-radius: 30px;
+
+          p {
+            color: var(--bg-color);
+          }
+        }
+
+        a:last-child {
+          background-color: var(--twitter-blue);
+          color: var(--text-color);
+        }
+
+        a:last-child:hover {
+          background-color: #1da0f2e5;
+        }
+
+        .or-section {
+          display: flex;
+          align-items: center;
+          text-align: center;
+          margin: 5px 0; /* Adjust margin as needed */
+        }
+
+        .or-line {
+          flex: 1;
+          border: none;
+          border-top: 1px solid var(--border-stroke); /* Style of the horizontal line */
+          margin: 0 8px; /* Adjust margin as needed */
+        }
+      }
+
+      p {
+        color: var(--border-stroke);
+        width: 94%;
+
+        a {
+          color: var(--twitter-blue);
+        }
+      }
+
+      .have_account {
+        h3 {
+          margin-top: 50px;
+          font-size: 1rem;
+          font-family: "Source Sans Pro";
+          line-height: 0rem;
+        }
+
+        a {
+          display: flex;
+          width: 55%;
+          cursor: pointer;
+          border: 1px solid var(--border-stroke);
+          margin: 8px 0;
+          color: var(--twitter-blue);
+          font-weight: bold;
+          font-family: "Roboto", sans-serif;
+          padding: 8px;
+          border-radius: 30px;
+        }
+
+        a:hover {
+          background-color: #1da0f21f;
+        }
+      }
+    }
+  }
+
+  /* CSS */
+  .footer {
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        font-family:
+          "TwitterChirp",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        font-size: 0.8rem;
+        text-decoration: none;
+        color: var(--text-color); /* Link color */
+        margin: 0 10px; /* Adjust horizontal spacing */
+        line-height: 30px;
+      }
+
+      a:first-child {
+        margin-left: 0; /* Remove left margin for the first link */
+      }
+
+      a:hover {
+        text-decoration: underline; /* Change link color on hover */
+      }
+
+      a:last-child:hover {
+        text-decoration: none; /* Change link color on hover */
       }
     }
   }
 }
 
-@media screen and (max-width: 640px) {
-  .log_out_background {
-    padding-left: 10%;
 
-    .right-section {
-      flex: 82%;
-      align-items: flex-start;
-      justify-content: left;
 
-      h1 {
-        line-height: 6rem;
+
+/* Smaller screen responsiveness*/
+@media screen and (max-width: 968px) {
+  .logout {
+    height: fit-content;
+    .log_out_background {
+      padding: 0 20%;
+      padding-top: 1.8rem;
+      flex-direction: column;
+
+      .left-section {
+        flex: 15%;
+        align-items: flex-start;
+        justify-content: left;
+
+        img {
+          width: 4.7rem;
+        }
+      }
+
+      .right-section {
+        margin-top: 50px;
+        flex: 100%;
+        align-items: flex-start;
+        justify-content: left;
+
+        h1 {
+          margin-bottom: 40px;
+          font-size: 4.2rem;
+          width: 200px;
+          line-height: 4rem;
+        }
+
+        h3 {
+          margin: 2rem 0;
+        }
+
+        .buttons {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .have_account {
+          a {
+            width: 94%;
+          }
+        }
+      }
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding: 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          font-family:
+            "TwitterChirp",
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+          font-size: 0.8rem;
+          text-decoration: none;
+          color: var(--text-color); /* Link color */
+          margin: 0 5px; /* Adjust horizontal spacing */
+          line-height: 30px;
+        }
+
+        a:first-child {
+          margin-left: 0; /* Remove left margin for the first link */
+        }
+
+        a:hover {
+          text-decoration: underline; /* Change link color on hover */
+        }
+
+        a:last-child:hover {
+          text-decoration: none; /* Change link color on hover */
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logout {
+    .log_out_background {
+      padding: 0 0;
+      padding-top: 1.8rem;
+
+      .right-section {
+        margin-top: 25px;
+        flex: 82%;
+        align-items: flex-start;
+        justify-content: left;
+
+        h1 {
+          font-size: 3rem;
+          margin-top: 30px;
+          line-height: 4rem;
+          width: 100%;
+        }
+
+        h3 {
+          margin: 1rem 0;
+        }
+
+        .buttons {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
       }
     }
   }
