@@ -7,6 +7,8 @@ This project is always updated with new features
 
 see below for pictures with every new update
 
+<img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/log_in.jpeg"/>
+
 <img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/twitter_logout.jpeg"/>
 
 <img src="https://github.com/Akinyemi-samuel/Twitter-Clone/blob/main/frontend/readme_img/tweeticon1.png"/>
